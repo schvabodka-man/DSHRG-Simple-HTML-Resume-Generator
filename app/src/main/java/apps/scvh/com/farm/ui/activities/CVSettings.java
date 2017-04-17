@@ -1,4 +1,4 @@
-package apps.scvh.com.farm.activities;
+package apps.scvh.com.farm.ui.activities;
 
 
 import android.os.Bundle;

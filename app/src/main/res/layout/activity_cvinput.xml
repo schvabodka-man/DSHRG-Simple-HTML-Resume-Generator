@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="apps.scvh.com.farm.activities.CVInput">
+    tools:context=".ui.activities.CVInput">
 
 
     <ScrollView
@@ -29,14 +29,13 @@
             <LinearLayout
                 android:id="@+id/experience"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/full_name">
+                android:layout_below="@+id/full_name"
+                android:orientation="vertical">
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
                     android:hint="@string/experience"/>
             </LinearLayout>
 
@@ -54,7 +53,8 @@
                 android:id="@+id/education"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/create_experience">
+                android:layout_below="@+id/create_experience"
+                android:orientation="vertical">
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -77,7 +77,8 @@
                 android:id="@+id/project"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/create_education">
+                android:layout_below="@+id/create_education"
+                android:orientation="vertical">
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -107,7 +108,8 @@
                 android:id="@+id/primary_skill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/primary_skill_textview">
+                android:layout_below="@+id/primary_skill_textview"
+                android:orientation="vertical">
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -137,6 +139,7 @@
                 android:id="@+id/secondary_skill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_below="@+id/secondary_skill_textview">
 
                 <EditText
@@ -168,6 +171,7 @@
                 android:id="@+id/other_skill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_below="@+id/other_skill_textview">
 
                 <EditText
@@ -187,9 +191,10 @@
 
             <LinearLayout
                 android:id="@+id/link"
-                android:layout_below="@+id/create_other_skill"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/create_other_skill">
 
                 <EditText
                     android:layout_width="wrap_content"
