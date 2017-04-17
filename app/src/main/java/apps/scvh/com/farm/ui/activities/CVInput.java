@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import apps.scvh.com.farm.R;
@@ -63,47 +62,19 @@ public class CVInput extends AppCompatActivity {
 
 
     public void initClickHandlers() {
-        findViewById(R.id.create_experience).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                experience.addView(textBoxFactory.createTextBox(R.string.experience));
-            }
-        });
-        findViewById(R.id.create_education).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                education.addView(textBoxFactory.createTextBox(R.string.education));
-            }
-        });
-        findViewById(R.id.create_project).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                projects.addView(textBoxFactory.createTextBox(R.string.personal_projects));
-            }
-        });
-        findViewById(R.id.create_link).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                links.addView(textBoxFactory.createTextBox(R.string.link));
-            }
-        });
-        findViewById(R.id.create_primary_skill).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                primary.addView(textBoxFactory.createTextBox(R.string.skill));
-            }
-        });
-        findViewById(R.id.create_secondary_skill).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                second.addView(textBoxFactory.createTextBox(R.string.skill));
-            }
-        });
-        findViewById(R.id.create_other_skill).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                other.addView(textBoxFactory.createTextBox(R.string.skill));
-            }
-        });
+        findViewById(R.id.create_experience).setOnClickListener(v -> experience.addView
+                (textBoxFactory.createTextBox(R.string.experience)));
+        findViewById(R.id.create_education).setOnClickListener(v -> education.addView
+                (textBoxFactory.createTextBox(R.string.education)));
+        findViewById(R.id.create_project).setOnClickListener(v -> projects.addView(textBoxFactory
+                .createTextBox(R.string.personal_projects)));
+        findViewById(R.id.create_link).setOnClickListener(v -> links.addView(textBoxFactory
+                .createTextBox(R.string.link)));
+        findViewById(R.id.create_primary_skill).setOnClickListener(v -> primary.addView
+                (textBoxFactory.createTextBox(R.string.skill)));
+        findViewById(R.id.create_secondary_skill).setOnClickListener(v -> second.addView
+                (textBoxFactory.createTextBox(R.string.skill)));
+        findViewById(R.id.create_other_skill).setOnClickListener(v -> other.addView
+                (textBoxFactory.createTextBox(R.string.skill)));
     }
 }
