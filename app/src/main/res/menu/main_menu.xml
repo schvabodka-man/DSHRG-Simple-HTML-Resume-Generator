@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/cv_parts"
+        android:title="@string/cv_parts"/>
+    <item
+        android:id="@+id/cv_layout"
+        android:title="@string/cv_layout"/>
+</menu>

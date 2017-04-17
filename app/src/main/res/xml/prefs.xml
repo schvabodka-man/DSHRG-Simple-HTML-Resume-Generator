@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/full_name_key"
+        android:title="@string/full_name"/>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/experience_key"
+        android:title="@string/experience"/>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/education_key"
+        android:title="@string/education"/>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/personal_projects_key"
+        android:title="@string/personal_projects"/>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/skills_key"
+        android:title="@string/skills"/>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/links_key"
+        android:title="@string/links"/>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/about"
+        android:title="@string/about_key"/>
+
+</PreferenceScreen>
