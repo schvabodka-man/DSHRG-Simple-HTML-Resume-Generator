@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.TextBoxFactory;
+import apps.scvh.com.farm.util.LinearStringsReader;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -30,6 +31,7 @@ public class CVInput extends AppCompatActivity {
     LinearLayout links;
 
     private TextBoxFactory textBoxFactory;
+    private LinearStringsReader reader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class CVInput extends AppCompatActivity {
         ButterKnife.bind(this);
         initClickHandlers();
         textBoxFactory = new TextBoxFactory(this);
+        reader = new LinearStringsReader();
     }
 
     @Override
@@ -50,10 +53,10 @@ public class CVInput extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.cv_layout:
+                startActivity(new Intent(this, CVLayout.class));
                 return true;
             case R.id.cv_parts:
-                Intent intent = new Intent(this, CVSettings.class);
-                startActivity(intent);
+                startActivity(new Intent(this, CVSettings.class));
                 return true;
             default:
                 return true;
