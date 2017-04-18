@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,6 +35,8 @@ public class CVLayout extends AppCompatActivity {
     @BindView(R.id.other_position)
     TextView other;
 
+    private TextView view; //meh
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,49 +52,26 @@ public class CVLayout extends AppCompatActivity {
 
     private void initDrags(ArrayList<TextView> views) {
         Iterator<TextView> listIterator = views.iterator();
-        TextView view;
         while (listIterator.hasNext()) {
             view = listIterator.next();
-            view.setOnTouchListener(new TouchListener());
-            view.setOnDragListener(new DragListner());
-        }
-    }
-
-    private final class DragListner implements View.OnDragListener {
-
-        @Override
-        public boolean onDrag(View v, DragEvent event) {
-            switch (event.getAction()) {
-                case DragEvent.ACTION_DROP:
-                    View view = (View) event.getLocalState();
-                    ViewGroup owner = (ViewGroup) view.getParent();
-                    owner.removeView(view);
-                    LinearLayout container = (LinearLayout) v;
-                    container.addView(view);
-                    view.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    break;
-            }
-            return true;
-        }
-    }
-
-    private final class TouchListener implements View.OnTouchListener {
-
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                ClipData data = ClipData.newPlainText("", "");
-                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
-                        v);
-                v.startDrag(data, shadowBuilder, v, 0);
-                v.setVisibility(View.INVISIBLE);
+            view.setOnTouchListener((v, event) -> {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    ClipData data = ClipData.newPlainText("", "");
+                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
+                            v);
+                    view.startDrag(data, shadowBuilder, view, 0);
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            view.setOnDragListener((v, event) -> {
+                if (event.getAction() == DragEvent.ACTION_DRAG_ENDED) {
+                    view.setX(event.getX());
+                    view.setY(event.getY());
+                }
                 return true;
-            } else {
-                return false;
-            }
+            });
         }
     }
-
 }
