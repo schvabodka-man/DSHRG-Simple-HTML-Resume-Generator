@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.TextBoxFactory;
+import apps.scvh.com.farm.util.CV;
+import apps.scvh.com.farm.util.CVBuilder;
 import apps.scvh.com.farm.util.LinearStringsReader;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,7 +64,7 @@ public class CVInput extends AppCompatActivity {
     }
 
 
-    public void initClickHandlers() {
+    private void initClickHandlers() {
         findViewById(R.id.create_experience).setOnClickListener(v -> experience.addView
                 (textBoxFactory.createTextBox(R.string.experience)));
         findViewById(R.id.create_education).setOnClickListener(v -> education.addView
@@ -76,5 +79,20 @@ public class CVInput extends AppCompatActivity {
                 (textBoxFactory.createTextBox(R.string.skill)));
         findViewById(R.id.create_other_skill).setOnClickListener(v -> other.addView
                 (textBoxFactory.createTextBox(R.string.skill)));
+        findViewById(R.id.create_cv).setOnClickListener(v -> makeCV());
+    }
+
+    private void makeCV() {
+        CVBuilder builder = new CVBuilder();
+        builder.setAbout((EditText) findViewById(R.id.about)).
+                setFullName((EditText) findViewById(R.id.full_name)).
+                setEducation((LinearLayout) findViewById(R.id.education)).
+                setExperience((LinearLayout) findViewById(R.id.experience)).
+                setLinks((LinearLayout) findViewById(R.id.link)).
+                setProjects((LinearLayout) findViewById(R.id.project)).
+                setPrimarySkills((LinearLayout) findViewById(R.id.primary_skill)).
+                setSecondarySkills((LinearLayout) findViewById(R.id.secondary_skill)).
+                setOtherSkills((LinearLayout) findViewById(R.id.other_skill));
+        CV newCV = builder.buildCV();
     }
 }
