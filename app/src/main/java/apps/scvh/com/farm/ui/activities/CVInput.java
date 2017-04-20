@@ -52,9 +52,6 @@ public class CVInput extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.cv_layout:
-                startActivity(new Intent(this, CVLayout.class));
-                return true;
             case R.id.cv_parts:
                 startActivity(new Intent(this, CVSettings.class));
                 return true;
