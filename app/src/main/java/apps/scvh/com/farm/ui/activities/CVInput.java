@@ -82,7 +82,7 @@ public class CVInput extends AppCompatActivity {
         findViewById(R.id.create_cv).setOnClickListener(v -> makeCV());
     }
 
-    private void makeCV() {
+    private CV makeCV() {
         CVBuilder builder = new CVBuilder();
         builder.setAbout((EditText) findViewById(R.id.about)).
                 setFullName((EditText) findViewById(R.id.full_name)).
@@ -93,6 +93,6 @@ public class CVInput extends AppCompatActivity {
                 setPrimarySkills((LinearLayout) findViewById(R.id.primary_skill)).
                 setSecondarySkills((LinearLayout) findViewById(R.id.secondary_skill)).
                 setOtherSkills((LinearLayout) findViewById(R.id.other_skill));
-        CV newCV = builder.buildCV();
+        return builder.buildCV();
     }
 }

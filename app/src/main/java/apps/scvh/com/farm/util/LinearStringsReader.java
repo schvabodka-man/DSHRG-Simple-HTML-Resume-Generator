@@ -16,7 +16,11 @@ public class LinearStringsReader {
         EditText text;
         while (iterator.hasNext()) {
             text = (EditText) iterator.next();
-            strings.add(text.getText().toString());
+            if (text.getText().toString().isEmpty()) {
+                break;
+            } else {
+                strings.add(text.getText().toString());
+            }
         }
         return strings;
     }
