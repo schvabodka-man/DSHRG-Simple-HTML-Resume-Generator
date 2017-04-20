@@ -8,13 +8,10 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import com.tom_roush.pdfbox.pdmodel.PDDocument;
-
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.TextBoxFactory;
 import apps.scvh.com.farm.util.CV;
 import apps.scvh.com.farm.util.CVBuilder;
-import apps.scvh.com.farm.util.CVRenderer;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -80,9 +77,9 @@ public class CVInput extends AppCompatActivity {
         findViewById(R.id.create_other_skill).setOnClickListener(v -> other.addView
                 (textBoxFactory.createTextBox(R.string.skill)));
         findViewById(R.id.create_cv).setOnClickListener(v -> {
-            CVRenderer cvRenderer = new CVRenderer(this);
-            PDDocument doc = cvRenderer.renderCV(makeCV());
-            cvRenderer.saveDocument(doc);
+            Intent intent = new Intent(this, CVReady.class);
+            intent.putExtra("cv", makeCV());
+            startActivity(intent);
         });
     }
 

@@ -2,6 +2,8 @@ package apps.scvh.com.farm.util;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Environment;
 
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
@@ -39,7 +41,6 @@ public class CVRenderer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return document;
     }
 
@@ -57,7 +58,17 @@ public class CVRenderer {
     }
 
     public void openDocument(PDDocument pdfDocument) {
-
+        try {
+            File file = File.createTempFile("temporary_cv.pdf", null, context.getCacheDir());
+            pdfDocument.save(file);
+            pdfDocument.close();
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.fromFile(file), "application/pdf");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            context.startActivity(intent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

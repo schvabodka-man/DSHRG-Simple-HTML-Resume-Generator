@@ -23,5 +23,8 @@
     <string name="other_skills">Other skills</string>
     <string name="skill">Skill</string>
     <string name="link">Link</string>
-    <string name="create_cv">Compose CV</string>
+    <string name="create_cv">COMPOSE CV</string>
+    <string name="save">SAVE</string>
+    <string name="open">OPEN</string>
+    <string name="save_and_open">SAVE AND OPEN</string>
 </resources>

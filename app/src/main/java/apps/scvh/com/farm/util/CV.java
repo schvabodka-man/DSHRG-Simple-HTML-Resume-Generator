@@ -1,9 +1,10 @@
 package apps.scvh.com.farm.util;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CV {
+public class CV implements Serializable {
 
     private String fullName;
     private String about;
