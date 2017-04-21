@@ -27,4 +27,8 @@
     <string name="save">SAVE</string>
     <string name="open">OPEN</string>
     <string name="save_and_open">SAVE AND OPEN</string>
+    <string name="choose_folder">FOLDER</string>
+    <string name="new_folder">New folder</string>
+    <string name="file_path">/storage/emulated/0</string>
+    <string name="file_name">File name</string>
 </resources>

@@ -1,10 +1,14 @@
 package apps.scvh.com.farm.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
+
+import net.rdrei.android.dirchooser.DirectoryChooserActivity;
+import net.rdrei.android.dirchooser.DirectoryChooserConfig;
 
 import java.io.File;
 
@@ -25,7 +29,7 @@ public class CVReady extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cvready);
         CV cvBasic = (CV) getIntent().getExtras().getSerializable("cv");
-        renderer = new CVRenderer(this);
+        renderer = new CVRenderer();
         cv = renderer.renderCV(cvBasic);
         fsWorker = new FSWorker(this);
         initListeners();
@@ -49,5 +53,21 @@ public class CVReady extends AppCompatActivity {
             File file = new File(documents, "CV.pdf");
             fsWorker.saveAndOpenDocument(cv, file);
         });
+        findViewById(R.id.folder).setOnClickListener(v -> {
+            Intent intent = new Intent(this, DirectoryChooserActivity.class);
+            DirectoryChooserConfig config = DirectoryChooserConfig.builder().initialDirectory
+                    (getString(R.string.file_path)).allowNewDirectoryNameModification(true)
+                    .allowReadOnlyDirectory(false).newDirectoryName(getString(R.string
+                            .new_folder)).build();
+            intent.putExtra(DirectoryChooserActivity.EXTRA_CONFIG, config);
+            startActivityForResult(intent, 0);
+        });
+
+    }
+
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
     }
 }
