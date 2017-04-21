@@ -23,13 +23,12 @@ public class FSWorker {
         try {
             file.delete();
             pdfDocument.save(new FileOutputStream(file));
-            pdfDocument.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void openDocument(File file) {
+    private void openDocument(File file) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndType(Uri.fromFile(file), "application/pdf");
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);

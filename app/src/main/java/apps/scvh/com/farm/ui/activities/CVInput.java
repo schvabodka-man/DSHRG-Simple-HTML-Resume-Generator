@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -31,6 +32,22 @@ public class CVInput extends AppCompatActivity {
     LinearLayout other;
     @BindView(R.id.link)
     LinearLayout links;
+    @BindView(R.id.create_experience)
+    Button createExperience;
+    @BindView(R.id.create_education)
+    Button createEducation;
+    @BindView(R.id.create_project)
+    Button createProject;
+    @BindView(R.id.create_link)
+    Button createLink;
+    @BindView(R.id.create_primary_skill)
+    Button createPrimarySkill;
+    @BindView(R.id.create_secondary_skill)
+    Button createSecondarySkill;
+    @BindView(R.id.create_other_skill)
+    Button createOtherSkill;
+    @BindView(R.id.create_cv)
+    Button createCV;
 
     private TextBoxFactory textBoxFactory;
 
@@ -62,21 +79,21 @@ public class CVInput extends AppCompatActivity {
 
 
     private void initClickHandlers() {
-        findViewById(R.id.create_experience).setOnClickListener(v -> experience.addView
+        createExperience.setOnClickListener(v -> experience.addView
                 (textBoxFactory.createTextBox(R.string.experience)));
-        findViewById(R.id.create_education).setOnClickListener(v -> education.addView
+        createEducation.setOnClickListener(v -> education.addView
                 (textBoxFactory.createTextBox(R.string.education)));
-        findViewById(R.id.create_project).setOnClickListener(v -> projects.addView(textBoxFactory
+        createProject.setOnClickListener(v -> projects.addView(textBoxFactory
                 .createTextBox(R.string.personal_projects)));
-        findViewById(R.id.create_link).setOnClickListener(v -> links.addView(textBoxFactory
+        createLink.setOnClickListener(v -> links.addView(textBoxFactory
                 .createTextBox(R.string.link)));
-        findViewById(R.id.create_primary_skill).setOnClickListener(v -> primary.addView
+        createPrimarySkill.setOnClickListener(v -> primary.addView
                 (textBoxFactory.createTextBox(R.string.skill)));
-        findViewById(R.id.create_secondary_skill).setOnClickListener(v -> second.addView
+        createSecondarySkill.setOnClickListener(v -> second.addView
                 (textBoxFactory.createTextBox(R.string.skill)));
-        findViewById(R.id.create_other_skill).setOnClickListener(v -> other.addView
+        createOtherSkill.setOnClickListener(v -> other.addView
                 (textBoxFactory.createTextBox(R.string.skill)));
-        findViewById(R.id.create_cv).setOnClickListener(v -> {
+        createCV.setOnClickListener(v -> {
             Intent intent = new Intent(this, CVReady.class);
             intent.putExtra("cv", makeCV());
             startActivity(intent);
