@@ -5,14 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
+import java.util.ArrayList;
 
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.TextBoxFactory;
 import apps.scvh.com.farm.util.CV;
 import apps.scvh.com.farm.util.CVBuilder;
+import apps.scvh.com.farm.util.IgnoredFieldsWorker;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -48,8 +52,11 @@ public class CVInput extends AppCompatActivity {
     Button createOtherSkill;
     @BindView(R.id.create_cv)
     Button createCV;
+    @BindView(R.id.container)
+    LinearLayout container;
 
     private TextBoxFactory textBoxFactory;
+    private IgnoredFieldsWorker ignoreHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,8 @@ public class CVInput extends AppCompatActivity {
         ButterKnife.bind(this);
         initClickHandlers();
         textBoxFactory = new TextBoxFactory(this);
+        ignoreHelper = new IgnoredFieldsWorker(this);
+        ignoreFields(ignoreHelper.getListofIgnoredFields());
     }
 
     @Override
@@ -77,6 +86,15 @@ public class CVInput extends AppCompatActivity {
         }
     }
 
+    private void ignoreFields(ArrayList<Integer> ignored) {
+        View view;
+        for (int i = 0; i < container.getChildCount(); i++) {
+            view = container.getChildAt(i);
+            if (ignored.contains(view.getId())) {
+                view.setVisibility(View.INVISIBLE);
+            }
+        }
+    }
 
     private void initClickHandlers() {
         createExperience.setOnClickListener(v -> experience.addView

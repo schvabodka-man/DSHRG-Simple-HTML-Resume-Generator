@@ -16,7 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -30,7 +32,6 @@
                 android:id="@+id/experience"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/full_name"
                 android:orientation="vertical">
 
                 <EditText
@@ -45,15 +46,12 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/full_name"
-                android:layout_below="@+id/experience"
                 android:text="@string/new_line"/>
 
             <LinearLayout
                 android:id="@+id/education"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/create_experience"
                 android:orientation="vertical">
 
                 <EditText
@@ -68,8 +66,6 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/education"
-                android:layout_below="@+id/education"
                 android:text="@string/new_line"/>
 
 
@@ -77,7 +73,6 @@
                 android:id="@+id/project"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/create_education"
                 android:orientation="vertical">
 
                 <EditText
@@ -91,16 +86,12 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/full_name"
-                android:layout_below="@+id/project"
                 android:text="@string/new_line"/>
 
             <TextView
                 android:id="@+id/primary_skill_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/create_project"
                 android:text="@string/primary_skills"
                 android:textSize="17dp"/>
 
@@ -108,7 +99,6 @@
                 android:id="@+id/primary_skill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/primary_skill_textview"
                 android:orientation="vertical">
 
                 <EditText
@@ -122,16 +112,12 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/full_name"
-                android:layout_below="@+id/primary_skill"
                 android:text="@string/new_line"/>
 
             <TextView
                 android:id="@+id/secondary_skill_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/create_primary_skill"
                 android:text="@string/secondary_skills"
                 android:textSize="17dp"/>
 
@@ -139,8 +125,7 @@
                 android:id="@+id/secondary_skill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_below="@+id/secondary_skill_textview">
+                android:orientation="vertical">
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -153,16 +138,12 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/full_name"
-                android:layout_below="@+id/secondary_skill"
                 android:text="@string/new_line"/>
 
             <TextView
                 android:id="@+id/other_skill_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/create_secondary_skill"
                 android:text="@string/other_skills"
                 android:textSize="17dp"/>
 
@@ -171,8 +152,7 @@
                 android:id="@+id/other_skill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_below="@+id/other_skill_textview">
+                android:orientation="vertical">
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -185,16 +165,13 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/full_name"
-                android:layout_below="@+id/other_skill"
                 android:text="@string/new_line"/>
 
             <LinearLayout
                 android:id="@+id/link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_below="@+id/create_other_skill">
+                android:orientation="vertical">
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -208,16 +185,12 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/full_name"
-                android:layout_below="@+id/link"
                 android:text="@string/new_line"/>
 
             <EditText
                 android:id="@+id/about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/create_link"
                 android:hint="@string/about"/>
 
             <Button
@@ -225,9 +198,8 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/about"
                 android:text="@string/create_cv"/>
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
 </RelativeLayout>

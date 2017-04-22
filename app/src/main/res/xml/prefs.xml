@@ -3,11 +3,6 @@
 
     <CheckBoxPreference
         android:defaultValue="true"
-        android:key="@string/full_name_key"
-        android:title="@string/full_name"/>
-
-    <CheckBoxPreference
-        android:defaultValue="true"
         android:key="@string/experience_key"
         android:title="@string/experience"/>
 
@@ -30,10 +25,5 @@
         android:defaultValue="true"
         android:key="@string/links_key"
         android:title="@string/links"/>
-
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="@string/about"
-        android:title="@string/about_key"/>
 
 </PreferenceScreen>
