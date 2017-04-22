@@ -45,7 +45,7 @@ public class CVReady extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cvready);
         CV cvBasic = (CV) getIntent().getExtras().getSerializable("cv");
-        renderer = new CVRenderer();
+        renderer = new CVRenderer(this);
         cv = renderer.renderCV(cvBasic);
         fsWorker = new FSWorker(this);
         ButterKnife.bind(this);

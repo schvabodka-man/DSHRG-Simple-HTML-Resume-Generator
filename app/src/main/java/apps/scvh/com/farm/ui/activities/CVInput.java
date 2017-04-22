@@ -86,12 +86,20 @@ public class CVInput extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ignoreFields(ignoreHelper.getListofIgnoredFields());
+    }
+
     private void ignoreFields(ArrayList<Integer> ignored) {
         View view;
         for (int i = 0; i < container.getChildCount(); i++) {
             view = container.getChildAt(i);
             if (ignored.contains(view.getId())) {
                 view.setVisibility(View.GONE);
+            } else {
+                view.setVisibility(View.VISIBLE);
             }
         }
     }
