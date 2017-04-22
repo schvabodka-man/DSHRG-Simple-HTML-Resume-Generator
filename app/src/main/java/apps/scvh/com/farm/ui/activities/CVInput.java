@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.TextBoxFactory;
+import apps.scvh.com.farm.ui.ViewChecker;
 import apps.scvh.com.farm.util.CV;
 import apps.scvh.com.farm.util.CVBuilder;
 import apps.scvh.com.farm.util.IgnoredFieldsWorker;
@@ -58,6 +59,7 @@ public class CVInput extends AppCompatActivity {
 
     private TextBoxFactory textBoxFactory;
     private IgnoredFieldsWorker ignoreHelper;
+    private ViewChecker checker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class CVInput extends AppCompatActivity {
         initClickHandlers();
         textBoxFactory = new TextBoxFactory(this);
         ignoreHelper = new IgnoredFieldsWorker(this);
+        checker = new ViewChecker();
         ignoreFields(ignoreHelper.getListofIgnoredFields());
     }
 
@@ -137,11 +140,11 @@ public class CVInput extends AppCompatActivity {
         for (int i = 0; i < container.getChildCount(); i++) {
             view = container.getChildAt(i);
             if (view.getVisibility() == View.VISIBLE && view instanceof EditText) {
-                if (isEditTextEmpty(view)) {
+                if (checker.isEditTextEmpty(view)) {
                     return false;
                 }
             } else if (view.getVisibility() == View.VISIBLE && view instanceof LinearLayout) {
-                if (isLinearLayoutEmpty(view)) {
+                if (checker.isLinearLayoutEmpty(view)) {
                     return false;
                 }
             }
@@ -149,26 +152,6 @@ public class CVInput extends AppCompatActivity {
         return true;
     }
 
-    private boolean isEditTextEmpty(View view) {
-        EditText text = (EditText) view;
-        if (text.getText().length() == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean isLinearLayoutEmpty(View view) {
-        LinearLayout layout = (LinearLayout) view;
-        EditText text;
-        for (int i = 0; i < layout.getChildCount(); i++) {
-            text = (EditText) layout.getChildAt(i);
-            if (!isEditTextEmpty(text)) {
-                return false;
-            }
-        }
-        return true;
-    }
 
     private CV makeCV() {
         CVBuilder builder = new CVBuilder();

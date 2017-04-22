@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
 
@@ -14,6 +15,7 @@ import net.rdrei.android.dirchooser.DirectoryChooserConfig;
 import java.io.File;
 
 import apps.scvh.com.farm.R;
+import apps.scvh.com.farm.ui.ViewChecker;
 import apps.scvh.com.farm.util.CV;
 import apps.scvh.com.farm.util.CVRenderer;
 import apps.scvh.com.farm.util.FSWorker;
@@ -28,6 +30,7 @@ public class CVReady extends AppCompatActivity {
 
     private CVRenderer renderer;
     private FSWorker fsWorker;
+    private ViewChecker viewChecker;
 
     @BindView(R.id.file_name)
     EditText fileName;
@@ -48,23 +51,32 @@ public class CVReady extends AppCompatActivity {
         renderer = new CVRenderer(this);
         cv = renderer.renderCV(cvBasic);
         fsWorker = new FSWorker(this);
+        viewChecker = new ViewChecker();
         ButterKnife.bind(this);
         initListeners();
     }
 
     private void initListeners() {
         save.setOnClickListener(v -> {
-            File file = new File(new File(folderPath), fileName.getText().toString() + getString
-                    (R.string.file_type));
-            fsWorker.saveDocument(cv, file);
+            if (!isFilePathNull()) {
+                File file = new File(new File(folderPath), fileName.getText().toString() + getString
+                        (R.string.file_type));
+                fsWorker.saveDocument(cv, file);
+            } else {
+                Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
+            }
         });
         open.setOnClickListener(v -> {
             fsWorker.previewDocument(cv);
         });
         saveAndOpen.setOnClickListener(v -> {
-            File file = new File(new File(folderPath), fileName.getText().toString() + getString
-                    (R.string.file_type));
-            fsWorker.saveAndOpenDocument(cv, file);
+            if (!isFilePathNull()) {
+                File file = new File(new File(folderPath), fileName.getText().toString() + getString
+                        (R.string.file_type));
+                fsWorker.saveAndOpenDocument(cv, file);
+            } else {
+                Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
+            }
         });
         folder.setOnClickListener(v -> {
             Intent intent = new Intent(this, DirectoryChooserActivity.class);
@@ -76,6 +88,14 @@ public class CVReady extends AppCompatActivity {
             startActivityForResult(intent, 0);
         });
 
+    }
+
+    private boolean isFilePathNull() {
+        if (viewChecker.isEditTextEmpty(fileName) || folderPath == null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
