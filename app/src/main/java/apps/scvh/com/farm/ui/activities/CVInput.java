@@ -91,7 +91,7 @@ public class CVInput extends AppCompatActivity {
         for (int i = 0; i < container.getChildCount(); i++) {
             view = container.getChildAt(i);
             if (ignored.contains(view.getId())) {
-                view.setVisibility(View.INVISIBLE);
+                view.setVisibility(View.GONE);
             }
         }
     }
