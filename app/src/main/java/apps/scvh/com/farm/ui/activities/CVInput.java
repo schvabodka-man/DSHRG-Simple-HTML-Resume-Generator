@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -120,10 +121,53 @@ public class CVInput extends AppCompatActivity {
         createOtherSkill.setOnClickListener(v -> other.addView
                 (textBoxFactory.createTextBox(R.string.skill)));
         createCV.setOnClickListener(v -> {
-            Intent intent = new Intent(this, CVReady.class);
-            intent.putExtra("cv", makeCV());
-            startActivity(intent);
+            boolean emptyOrNot = isAllNonEmpty();
+            if (emptyOrNot) {
+                Intent intent = new Intent(this, CVReady.class);
+                intent.putExtra("cv", makeCV());
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, getString(R.string.null_field), Toast.LENGTH_SHORT).show();
+            }
         });
+    }
+
+    private boolean isAllNonEmpty() {
+        View view;
+        for (int i = 0; i < container.getChildCount(); i++) {
+            view = container.getChildAt(i);
+            if (view.getVisibility() == View.VISIBLE && view instanceof EditText) {
+                if (isEditTextEmpty(view)) {
+                    return false;
+                }
+            } else if (view.getVisibility() == View.VISIBLE && view instanceof LinearLayout) {
+                if (isLinearLayoutEmpty(view)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean isEditTextEmpty(View view) {
+        EditText text = (EditText) view;
+        if (text.getText().length() == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isLinearLayoutEmpty(View view) {
+        LinearLayout layout = (LinearLayout) view;
+        EditText text;
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            text = (EditText) layout.getChildAt(i);
+            if (!isEditTextEmpty(text)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private CV makeCV() {
