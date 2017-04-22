@@ -11,6 +11,7 @@ import com.tom_roush.pdfbox.pdmodel.font.PDType1Font;
 import com.tom_roush.pdfbox.util.PDFBoxResourceLoader;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CVRenderer {
 
@@ -25,12 +26,13 @@ public class CVRenderer {
         PDPage page = new PDPage();
         PDDocument document = new PDDocument();
         document.addPage(page);
-        PDFont font = PDType1Font.HELVETICA;
+        PDFont font = PDType1Font.COURIER;
         try {
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
             contentStream.beginText();
             contentStream.setFont(font, 14);
-            contentStream.drawString("HOLDER");
+            drawName(contentStream, cv.getFullName());
+            drawAbout(contentStream, cv.getAbout());
             contentStream.endText();
             contentStream.close();
         } catch (IOException e) {
@@ -39,4 +41,49 @@ public class CVRenderer {
         return document;
     }
 
+
+    private void drawName(PDPageContentStream stream, String name) {
+        try {
+            stream.showText(name);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void drawAbout(PDPageContentStream stream, String about) {
+        try {
+            stream.showText(about);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void drawExperience(PDPageContentStream stream, ArrayList<String> experience) {
+
+    }
+
+    private void drawEducation(PDPageContentStream stream, ArrayList<String> education) {
+
+    }
+
+    private void drawProjects(PDPageContentStream stream, ArrayList<String> projects) {
+
+    }
+
+    private void drawLinks(PDPageContentStream stream, ArrayList<String> links) {
+
+    }
+
+    private void drawPrimarySkills(PDPageContentStream stream, ArrayList<String> primarySkills) {
+
+    }
+
+    private void drawSecondarySkills(PDPageContentStream stream, ArrayList<String>
+            secondarySkills) {
+
+    }
+
+    private void drawOtherSkills(PDPageContentStream stream, ArrayList<String> otherSkills) {
+
+    }
 }

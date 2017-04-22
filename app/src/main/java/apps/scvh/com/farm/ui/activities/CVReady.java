@@ -54,16 +54,16 @@ public class CVReady extends AppCompatActivity {
 
     private void initListeners() {
         save.setOnClickListener(v -> {
-            File documents = new File(folderPath);
-            File file = new File(documents, fileName.getText().toString());
+            File file = new File(new File(folderPath), fileName.getText().toString() + getString
+                    (R.string.file_type));
             fsWorker.saveDocument(cv, file);
         });
         open.setOnClickListener(v -> {
             fsWorker.previewDocument(cv);
         });
         saveAndOpen.setOnClickListener(v -> {
-            File documents = new File(folderPath);
-            File file = new File(documents, fileName.getText().toString());
+            File file = new File(new File(folderPath), fileName.getText().toString() + getString
+                    (R.string.file_type));
             fsWorker.saveAndOpenDocument(cv, file);
         });
         folder.setOnClickListener(v -> {
@@ -77,7 +77,6 @@ public class CVReady extends AppCompatActivity {
         });
 
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

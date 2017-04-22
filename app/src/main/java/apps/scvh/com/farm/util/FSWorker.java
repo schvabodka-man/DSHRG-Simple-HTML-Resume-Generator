@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import apps.scvh.com.farm.R;
+
 public class FSWorker {
 
     private Context context;
@@ -30,7 +32,7 @@ public class FSWorker {
 
     private void openDocument(File file) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.fromFile(file), "application/pdf");
+        intent.setDataAndType(Uri.fromFile(file), context.getString(R.string.pdf_mime_type));
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         context.startActivity(intent);
     }
@@ -42,7 +44,8 @@ public class FSWorker {
 
     public void previewDocument(PDDocument pdfDocument) {
         try {
-            File file = File.createTempFile("temporary_cv.pdf", null, context.getCacheDir());
+            File file = File.createTempFile(context.getString(R.string.temporary_file_name),
+                    null, context.getCacheDir());
             saveDocument(pdfDocument, file);
             openDocument(file);
         } catch (IOException e) {

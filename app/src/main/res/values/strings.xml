@@ -31,4 +31,7 @@
     <string name="new_folder">New folder</string>
     <string name="file_path">/storage/emulated/0</string>
     <string name="file_name">File name</string>
+    <string name="file_type">.pdf</string>
+    <string name="pdf_mime_type">application/pdf</string>
+    <string name="temporary_file_name">temporary_cv.pdf</string>
 </resources>
