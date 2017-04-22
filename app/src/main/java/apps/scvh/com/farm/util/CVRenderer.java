@@ -33,6 +33,13 @@ public class CVRenderer {
             contentStream.setFont(font, 14);
             drawName(contentStream, cv.getFullName());
             drawAbout(contentStream, cv.getAbout());
+            drawEducation(contentStream, cv.getEducation());
+            drawExperience(contentStream, cv.getExperience());
+            drawLinks(contentStream, cv.getExperience());
+            drawProjects(contentStream, cv.getProjects());
+            drawPrimarySkills(contentStream, cv.getPrimarySkills());
+            drawSecondarySkills(contentStream, cv.getSecondarySkills());
+            drawOtherSkills(contentStream, cv.getOtherSkills());
             contentStream.endText();
             contentStream.close();
         } catch (IOException e) {
