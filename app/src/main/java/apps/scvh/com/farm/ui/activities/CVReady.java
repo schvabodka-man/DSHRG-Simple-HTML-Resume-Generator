@@ -14,11 +14,16 @@ import net.rdrei.android.dirchooser.DirectoryChooserConfig;
 
 import java.io.File;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.ViewChecker;
 import apps.scvh.com.farm.util.CV;
 import apps.scvh.com.farm.util.CVRenderer;
 import apps.scvh.com.farm.util.FSWorker;
+import apps.scvh.com.farm.util.di.DaggerAppComponent;
+import apps.scvh.com.farm.util.di.ObjectProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -28,9 +33,15 @@ public class CVReady extends AppCompatActivity {
     private PDDocument cv;
     private String folderPath;
 
-    private CVRenderer renderer;
-    private FSWorker fsWorker;
-    private ViewChecker viewChecker;
+    @Inject
+    @Named("Renderer")
+    CVRenderer renderer;
+    @Inject
+    @Named("FSWorker")
+    FSWorker fsWorker;
+    @Inject
+    @Named("viewChecker")
+    ViewChecker viewChecker;
 
     @BindView(R.id.file_name)
     EditText fileName;
@@ -47,12 +58,10 @@ public class CVReady extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cvready);
-        CV cvBasic = (CV) getIntent().getExtras().getSerializable("cv");
-        renderer = new CVRenderer(this);
-        cv = renderer.renderCV(cvBasic);
-        fsWorker = new FSWorker(this);
-        viewChecker = new ViewChecker();
         ButterKnife.bind(this);
+        DaggerAppComponent.builder().objectProvider(new ObjectProvider
+                (this)).build().inject(this);
+        cv = renderer.renderCV((CV) getIntent().getExtras().getSerializable("cv"));
         initListeners();
     }
 

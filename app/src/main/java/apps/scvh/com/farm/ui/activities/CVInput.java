@@ -13,12 +13,17 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.TextBoxFactory;
 import apps.scvh.com.farm.ui.ViewChecker;
 import apps.scvh.com.farm.util.CV;
 import apps.scvh.com.farm.util.CVBuilder;
 import apps.scvh.com.farm.util.IgnoredFieldsWorker;
+import apps.scvh.com.farm.util.di.DaggerAppComponent;
+import apps.scvh.com.farm.util.di.ObjectProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -57,19 +62,24 @@ public class CVInput extends AppCompatActivity {
     @BindView(R.id.container)
     LinearLayout container;
 
-    private TextBoxFactory textBoxFactory;
-    private IgnoredFieldsWorker ignoreHelper;
-    private ViewChecker checker;
+    @Inject
+    @Named("textBoxFactory")
+    TextBoxFactory textBoxFactory;
+    @Inject
+    @Named("IgnoreHelper")
+    IgnoredFieldsWorker ignoreHelper;
+    @Inject
+    @Named("viewChecker")
+    ViewChecker checker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cvinput);
         ButterKnife.bind(this);
+        DaggerAppComponent.builder().objectProvider(new ObjectProvider
+                (this)).build().inject(this);
         initClickHandlers();
-        textBoxFactory = new TextBoxFactory(this);
-        ignoreHelper = new IgnoredFieldsWorker(this);
-        checker = new ViewChecker();
         ignoreFields(ignoreHelper.getListofIgnoredFields());
     }
 

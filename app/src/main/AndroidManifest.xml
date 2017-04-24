@@ -25,7 +25,9 @@
             android:name=".ui.activities.CVSettings"
             android:label="@string/title_activity_cvsettings">
         </activity>
-        <activity android:name=".ui.activities.CVReady">
+        <activity
+            android:name=".ui.activities.CVReady"
+            android:configChanges="orientation|screenSize">
         </activity>
         <activity android:name="net.rdrei.android.dirchooser.DirectoryChooserActivity"/>
     </application>
