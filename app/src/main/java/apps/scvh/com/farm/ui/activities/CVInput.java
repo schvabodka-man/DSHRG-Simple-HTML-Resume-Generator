@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 
@@ -24,42 +27,25 @@ import apps.scvh.com.farm.util.CVBuilder;
 import apps.scvh.com.farm.util.IgnoredFieldsWorker;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;
 import apps.scvh.com.farm.util.di.ObjectProvider;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
+@EActivity(R.layout.activity_cvinput)
 public class CVInput extends AppCompatActivity {
 
-    @BindView(R.id.experience)
+    @ViewById(R.id.experience)
     LinearLayout experience;
-    @BindView(R.id.education)
+    @ViewById(R.id.education)
     LinearLayout education;
-    @BindView(R.id.project)
+    @ViewById(R.id.project)
     LinearLayout projects;
-    @BindView(R.id.primary_skill)
+    @ViewById(R.id.primary_skill)
     LinearLayout primary;
-    @BindView(R.id.secondary_skill)
+    @ViewById(R.id.secondary_skill)
     LinearLayout second;
-    @BindView(R.id.other_skill)
+    @ViewById(R.id.other_skill)
     LinearLayout other;
-    @BindView(R.id.link)
+    @ViewById(R.id.link)
     LinearLayout links;
-    @BindView(R.id.create_experience)
-    Button createExperience;
-    @BindView(R.id.create_education)
-    Button createEducation;
-    @BindView(R.id.create_project)
-    Button createProject;
-    @BindView(R.id.create_link)
-    Button createLink;
-    @BindView(R.id.create_primary_skill)
-    Button createPrimarySkill;
-    @BindView(R.id.create_secondary_skill)
-    Button createSecondarySkill;
-    @BindView(R.id.create_other_skill)
-    Button createOtherSkill;
-    @BindView(R.id.create_cv)
-    Button createCV;
-    @BindView(R.id.container)
+    @ViewById(R.id.container)
     LinearLayout container;
 
     @Inject
@@ -76,10 +62,8 @@ public class CVInput extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cvinput);
-        ButterKnife.bind(this);
         DaggerAppComponent.builder().objectProvider(new ObjectProvider
                 (this)).build().inject(this);
-        initClickHandlers();
         ignoreFields(ignoreHelper.getListofIgnoredFields());
     }
 
@@ -118,31 +102,58 @@ public class CVInput extends AppCompatActivity {
         }
     }
 
-    private void initClickHandlers() {
-        createExperience.setOnClickListener(v -> experience.addView
-                (textBoxFactory.createTextBox(R.string.experience)));
-        createEducation.setOnClickListener(v -> education.addView
-                (textBoxFactory.createTextBox(R.string.education)));
-        createProject.setOnClickListener(v -> projects.addView(textBoxFactory
-                .createTextBox(R.string.personal_projects)));
-        createLink.setOnClickListener(v -> links.addView(textBoxFactory
-                .createTextBox(R.string.link)));
-        createPrimarySkill.setOnClickListener(v -> primary.addView
-                (textBoxFactory.createTextBox(R.string.skill)));
-        createSecondarySkill.setOnClickListener(v -> second.addView
-                (textBoxFactory.createTextBox(R.string.skill)));
-        createOtherSkill.setOnClickListener(v -> other.addView
-                (textBoxFactory.createTextBox(R.string.skill)));
-        createCV.setOnClickListener(v -> {
-            boolean emptyOrNot = isAllNonEmpty();
-            if (emptyOrNot) {
-                Intent intent = new Intent(this, CVReady.class);
-                intent.putExtra("cv", makeCV());
-                startActivity(intent);
-            } else {
-                Toast.makeText(this, getString(R.string.null_field), Toast.LENGTH_SHORT).show();
-            }
-        });
+    @Click(R.id.create_experience)
+    void addExperience() {
+        experience.addView
+                (textBoxFactory.createTextBox(R.string.experience));
+    }
+
+    @Click(R.id.create_education)
+    void addEducation() {
+        education.addView
+                (textBoxFactory.createTextBox(R.string.education));
+    }
+
+    @Click(R.id.create_project)
+    void addProject() {
+        projects.addView(textBoxFactory
+                .createTextBox(R.string.personal_projects));
+    }
+
+    @Click(R.id.create_link)
+    void addLink() {
+        links.addView(textBoxFactory
+                .createTextBox(R.string.link));
+    }
+
+    @Click(R.id.create_primary_skill)
+    void addPrimary() {
+        primary.addView
+                (textBoxFactory.createTextBox(R.string.skill));
+    }
+
+    @Click(R.id.create_secondary_skill)
+    void addSecondary() {
+        second.addView
+                (textBoxFactory.createTextBox(R.string.skill));
+    }
+
+    @Click(R.id.create_other_skill)
+    void addOtherSkill() {
+        other.addView
+                (textBoxFactory.createTextBox(R.string.skill));
+    }
+
+    @Click(R.id.create_cv)
+    void composeCV() {
+        boolean emptyOrNot = isAllNonEmpty();
+        if (emptyOrNot) {
+            Intent intent = new Intent(this, CVReady_.class);
+            intent.putExtra("cv", makeCV());
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, getString(R.string.null_field), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean isAllNonEmpty() {

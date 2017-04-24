@@ -3,7 +3,6 @@ package apps.scvh.com.farm.ui.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -11,6 +10,10 @@ import com.tom_roush.pdfbox.pdmodel.PDDocument;
 
 import net.rdrei.android.dirchooser.DirectoryChooserActivity;
 import net.rdrei.android.dirchooser.DirectoryChooserConfig;
+
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
 import java.io.File;
 
@@ -24,11 +27,9 @@ import apps.scvh.com.farm.util.CVRenderer;
 import apps.scvh.com.farm.util.FSWorker;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;
 import apps.scvh.com.farm.util.di.ObjectProvider;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
+@EActivity(R.layout.activity_cvready)
 public class CVReady extends AppCompatActivity {
-
 
     private PDDocument cv;
     private String folderPath;
@@ -43,61 +44,56 @@ public class CVReady extends AppCompatActivity {
     @Named("viewChecker")
     ViewChecker viewChecker;
 
-    @BindView(R.id.file_name)
+    @ViewById(R.id.file_name)
     EditText fileName;
-    @BindView(R.id.save)
-    Button save;
-    @BindView(R.id.save_and_open)
-    Button saveAndOpen;
-    @BindView(R.id.open)
-    Button open;
-    @BindView(R.id.folder)
-    Button folder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cvready);
-        ButterKnife.bind(this);
         DaggerAppComponent.builder().objectProvider(new ObjectProvider
                 (this)).build().inject(this);
         cv = renderer.renderCV((CV) getIntent().getExtras().getSerializable("cv"));
-        initListeners();
     }
 
-    private void initListeners() {
-        save.setOnClickListener(v -> {
-            if (!isFilePathNull()) {
-                File file = new File(new File(folderPath), fileName.getText().toString() + getString
-                        (R.string.file_type));
-                fsWorker.saveDocument(cv, file);
-            } else {
-                Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
-            }
-        });
-        open.setOnClickListener(v -> {
-            fsWorker.previewDocument(cv);
-        });
-        saveAndOpen.setOnClickListener(v -> {
-            if (!isFilePathNull()) {
-                File file = new File(new File(folderPath), fileName.getText().toString() + getString
-                        (R.string.file_type));
-                fsWorker.saveAndOpenDocument(cv, file);
-            } else {
-                Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
-            }
-        });
-        folder.setOnClickListener(v -> {
-            Intent intent = new Intent(this, DirectoryChooserActivity.class);
-            DirectoryChooserConfig config = DirectoryChooserConfig.builder().initialDirectory
-                    (getString(R.string.file_path)).allowNewDirectoryNameModification(true)
-                    .allowReadOnlyDirectory(false).newDirectoryName(getString(R.string
-                            .new_folder)).build();
-            intent.putExtra(DirectoryChooserActivity.EXTRA_CONFIG, config);
-            startActivityForResult(intent, 0);
-        });
-
+    @Click(R.id.save)
+    void saveCV() {
+        if (!isFilePathNull()) {
+            File file = new File(new File(folderPath), fileName.getText().toString() + getString
+                    (R.string.file_type));
+            fsWorker.saveDocument(cv, file);
+        } else {
+            Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
+        }
     }
+
+    @Click(R.id.open)
+    void previewCV() {
+        fsWorker.previewDocument(cv);
+    }
+
+    @Click(R.id.save_and_open)
+    void saveAndOpenCV() {
+        if (!isFilePathNull()) {
+            File file = new File(new File(folderPath), fileName.getText().toString() + getString
+                    (R.string.file_type));
+            fsWorker.saveAndOpenDocument(cv, file);
+        } else {
+            Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Click(R.id.folder)
+    void chooseFolder() {
+        Intent intent = new Intent(this, DirectoryChooserActivity.class);
+        DirectoryChooserConfig config = DirectoryChooserConfig.builder().initialDirectory
+                (getString(R.string.file_path)).allowNewDirectoryNameModification(true)
+                .allowReadOnlyDirectory(false).newDirectoryName(getString(R.string
+                        .new_folder)).build();
+        intent.putExtra(DirectoryChooserActivity.EXTRA_CONFIG, config);
+        startActivityForResult(intent, 0);
+    }
+
 
     private boolean isFilePathNull() {
         if (viewChecker.isEditTextEmpty(fileName) || folderPath == null) {
