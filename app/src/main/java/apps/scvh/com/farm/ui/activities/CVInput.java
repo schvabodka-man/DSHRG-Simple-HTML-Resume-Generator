@@ -22,11 +22,11 @@ import javax.inject.Named;
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.TextBoxFactory;
 import apps.scvh.com.farm.ui.ViewChecker;
-import apps.scvh.com.farm.util.CV;
-import apps.scvh.com.farm.util.CVBuilder;
-import apps.scvh.com.farm.util.IgnoredFieldsWorker;
+import apps.scvh.com.farm.util.cv.CV;
+import apps.scvh.com.farm.util.cv.CVBuilder;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;
 import apps.scvh.com.farm.util.di.ObjectProvider;
+import apps.scvh.com.farm.util.workers.IgnoredFieldsWorker;
 
 @EActivity(R.layout.activity_cvinput)
 public class CVInput extends AppCompatActivity {

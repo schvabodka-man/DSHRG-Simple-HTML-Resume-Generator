@@ -22,11 +22,11 @@ import javax.inject.Named;
 
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.ViewChecker;
-import apps.scvh.com.farm.util.CV;
-import apps.scvh.com.farm.util.CVRenderer;
-import apps.scvh.com.farm.util.FSWorker;
+import apps.scvh.com.farm.util.cv.CV;
+import apps.scvh.com.farm.util.cv.CVRenderer;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;
 import apps.scvh.com.farm.util.di.ObjectProvider;
+import apps.scvh.com.farm.util.workers.FSWorker;
 
 @EActivity(R.layout.activity_cvready)
 public class CVReady extends AppCompatActivity {

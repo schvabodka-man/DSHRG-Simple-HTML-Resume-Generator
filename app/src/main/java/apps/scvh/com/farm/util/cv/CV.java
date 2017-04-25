@@ -1,4 +1,4 @@
-package apps.scvh.com.farm.util;
+package apps.scvh.com.farm.util.cv;
 
 
 import java.io.Serializable;

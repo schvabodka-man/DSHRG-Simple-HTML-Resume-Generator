@@ -1,4 +1,4 @@
-package apps.scvh.com.farm.util;
+package apps.scvh.com.farm.util.cv;
 
 
 import android.content.Context;
@@ -17,6 +17,7 @@ import java.util.Iterator;
 public class CVRenderer {
 
     private Context context;
+    private PDFont font;
 
     public CVRenderer(Context context) {
         this.context = context;
@@ -27,11 +28,9 @@ public class CVRenderer {
         PDPage page = new PDPage();
         PDDocument document = new PDDocument();
         document.addPage(page);
-        PDFont font = PDType1Font.COURIER;
         try {
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
             contentStream.beginText();
-            contentStream.setFont(font, 14);
             drawName(contentStream, cv.getFullName());
             drawAbout(contentStream, cv.getAbout());
             drawEducation(contentStream, cv.getEducation());
@@ -52,6 +51,8 @@ public class CVRenderer {
 
     private void drawName(PDPageContentStream stream, String name) {
         try {
+            font = PDType1Font.COURIER;
+            stream.setFont(font, 28);
             stream.showText(name);
         } catch (IOException e) {
             e.printStackTrace();
