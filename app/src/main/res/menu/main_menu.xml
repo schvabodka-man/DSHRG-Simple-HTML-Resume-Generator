@@ -4,4 +4,7 @@
     <item
         android:id="@+id/cv_parts"
         android:title="@string/cv_parts"/>
+    <item
+        android:id="@+id/cv_layout"
+        android:title="@string/cv_layout"/>
 </menu>

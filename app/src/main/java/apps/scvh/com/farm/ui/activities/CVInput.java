@@ -20,8 +20,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import apps.scvh.com.farm.R;
-import apps.scvh.com.farm.ui.TextBoxFactory;
-import apps.scvh.com.farm.ui.ViewChecker;
+import apps.scvh.com.farm.ui.workers.TextBoxFactory;
+import apps.scvh.com.farm.ui.workers.ViewChecker;
 import apps.scvh.com.farm.util.cv.CV;
 import apps.scvh.com.farm.util.cv.CVBuilder;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;
@@ -78,6 +78,9 @@ public class CVInput extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.cv_parts:
                 startActivity(new Intent(this, CVSettings.class));
+                return true;
+            case R.id.cv_layout:
+                startActivity(new Intent(this, CVLayout_.class));
                 return true;
             default:
                 return true;

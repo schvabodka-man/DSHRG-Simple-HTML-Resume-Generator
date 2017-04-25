@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jmedeisis.draglinearlayout.DragLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/name_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/full_name"/>
+
+    <TextView
+        android:id="@+id/about_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about"/>
+
+    <TextView
+        android:id="@+id/experience_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/experience"/>
+
+    <TextView
+        android:id="@+id/education_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/education"/>
+
+    <TextView
+        android:id="@+id/project_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/personal_projects"/>
+
+    <TextView
+        android:id="@+id/primary_skills_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/primary_skills"/>
+
+    <TextView
+        android:id="@+id/secondary_skills_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/secondary_skills"/>
+
+    <TextView
+        android:id="@+id/other_skills_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other_skills"/>
+
+    <TextView
+        android:id="@+id/link_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/links"/>
+</com.jmedeisis.draglinearlayout.DragLinearLayout>

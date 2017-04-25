@@ -21,7 +21,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import apps.scvh.com.farm.R;
-import apps.scvh.com.farm.ui.ViewChecker;
+import apps.scvh.com.farm.ui.workers.ViewChecker;
 import apps.scvh.com.farm.util.cv.CV;
 import apps.scvh.com.farm.util.cv.CVRenderer;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;

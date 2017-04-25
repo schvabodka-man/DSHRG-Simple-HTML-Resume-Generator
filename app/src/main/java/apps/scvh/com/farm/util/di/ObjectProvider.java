@@ -4,8 +4,8 @@ import android.content.Context;
 
 import javax.inject.Named;
 
-import apps.scvh.com.farm.ui.TextBoxFactory;
-import apps.scvh.com.farm.ui.ViewChecker;
+import apps.scvh.com.farm.ui.workers.TextBoxFactory;
+import apps.scvh.com.farm.ui.workers.ViewChecker;
 import apps.scvh.com.farm.util.cv.CVRenderer;
 import apps.scvh.com.farm.util.workers.FSWorker;
 import apps.scvh.com.farm.util.workers.IgnoredFieldsWorker;
