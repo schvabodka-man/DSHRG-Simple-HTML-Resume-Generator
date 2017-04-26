@@ -16,16 +16,19 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import java.io.File;
+import java.util.concurrent.ExecutionException;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.workers.ViewChecker;
+import apps.scvh.com.farm.util.FSStates;
 import apps.scvh.com.farm.util.cv.CV;
-import apps.scvh.com.farm.util.cv.CVRenderer;
+import apps.scvh.com.farm.util.cv.CVHolder;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;
 import apps.scvh.com.farm.util.di.ObjectProvider;
+import apps.scvh.com.farm.util.workers.CVRenderer;
 import apps.scvh.com.farm.util.workers.FSWorker;
 
 @EActivity(R.layout.activity_cvready)
@@ -53,7 +56,13 @@ public class CVReady extends AppCompatActivity {
         setContentView(R.layout.activity_cvready);
         DaggerAppComponent.builder().objectProvider(new ObjectProvider
                 (this)).build().inject(this);
-        cv = renderer.renderCV((CV) getIntent().getExtras().getSerializable("cv"));
+        try {
+            cv = renderer.execute((CV) getIntent().getExtras().getSerializable("cv")).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     @Click(R.id.save)
@@ -61,7 +70,7 @@ public class CVReady extends AppCompatActivity {
         if (!isFilePathNull()) {
             File file = new File(new File(folderPath), fileName.getText().toString() + getString
                     (R.string.file_type));
-            fsWorker.saveDocument(cv, file);
+            fsWorker.execute(new CVHolder(FSStates.WRITE, file, cv));
         } else {
             Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
         }
@@ -69,7 +78,7 @@ public class CVReady extends AppCompatActivity {
 
     @Click(R.id.open)
     void previewCV() {
-        fsWorker.previewDocument(cv);
+        fsWorker.execute(new CVHolder(FSStates.PREVIEW, null, cv));
     }
 
     @Click(R.id.save_and_open)
@@ -77,7 +86,7 @@ public class CVReady extends AppCompatActivity {
         if (!isFilePathNull()) {
             File file = new File(new File(folderPath), fileName.getText().toString() + getString
                     (R.string.file_type));
-            fsWorker.saveAndOpenDocument(cv, file);
+            fsWorker.execute(new CVHolder(FSStates.WRITEANDOPEN, file, cv));
         } else {
             Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
         }

@@ -3,7 +3,7 @@ package apps.scvh.com.farm.util.cv;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import apps.scvh.com.farm.util.workers.LinearStringsReader;
+import apps.scvh.com.farm.ui.workers.LinearStringsReader;
 
 public class CVBuilder {
 

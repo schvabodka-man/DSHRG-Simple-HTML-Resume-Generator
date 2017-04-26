@@ -1,7 +1,8 @@
-package apps.scvh.com.farm.util.cv;
+package apps.scvh.com.farm.util.workers;
 
 
 import android.content.Context;
+import android.os.AsyncTask;
 
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
 import com.tom_roush.pdfbox.pdmodel.PDPage;
@@ -14,17 +15,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class CVRenderer {
+import apps.scvh.com.farm.util.cv.CV;
 
-    private Context context;
+public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
+
     private PDFont font;
+    private int progress;
 
     public CVRenderer(Context context) {
-        this.context = context;
         PDFBoxResourceLoader.init(context);
     }
 
-    public PDDocument renderCV(CV cv) {
+    private PDDocument renderCV(CV cv) {
         PDPage page = new PDPage();
         PDDocument document = new PDDocument();
         document.addPage(page);
@@ -144,4 +146,10 @@ public class CVRenderer {
             }
         }
     }
+
+    @Override
+    protected PDDocument doInBackground(CV... params) {
+        return renderCV(params[0]);
+    }
+
 }
