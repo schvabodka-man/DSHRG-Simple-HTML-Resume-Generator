@@ -10,6 +10,8 @@ import com.tom_roush.pdfbox.pdmodel.PDPage;
 import com.tom_roush.pdfbox.pdmodel.PDPageContentStream;
 import com.tom_roush.pdfbox.pdmodel.font.PDType1Font;
 
+import org.apache.commons.lang3.text.WordUtils;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -58,7 +60,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
 
     private void drawName(PDPageContentStream stream, String name) {
         try {
-            stream.showText(name);
+            printWrappedText(name, stream);
             stream.setLeading(PdfLinePositions.BIG_LEADING.getCoordinate());
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,7 +70,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
     private void drawAbout(PDPageContentStream stream, String about) {
         try {
             stream.newLine();
-            stream.showText(about);
+            printWrappedText(about, stream);
             stream.newLine();
         } catch (IOException e) {
             e.printStackTrace();
@@ -83,7 +85,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
             stream.setLeading(PdfLinePositions.SMALL_LEADING.getCoordinate());
             stream.newLine();
             while (iterator.hasNext()) {
-                stream.showText(iterator.next());
+                printWrappedText(iterator.next(), stream);
                 if (iterator.hasNext()) {
                     stream.newLine();
                 }
@@ -113,7 +115,21 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
             case OTHER_SKILLS:
                 return context.getString(R.string.other_skills);
         }
-        return "";
+        return ""; //It's here JFL
+    }
+
+    private void printWrappedText(String text, PDPageContentStream stream) {
+        //Very interesting solution on this problem, I found on stackoverflow
+        String[] wrapped = WordUtils.wrap(text, 100).split("\\r?\\n");
+        String character;
+        for (int i = 0; i < wrapped.length; i++) {
+            character = wrapped[i];
+            try {
+                stream.showText(character);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

@@ -43,5 +43,6 @@ dependencies {
     compile group: 'com.google.dagger', name: 'dagger', version: '2.10'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
     compile 'com.jmedeisis:draglinearlayout:1.1.0'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
     testCompile 'junit:junit:4.12'
 }
