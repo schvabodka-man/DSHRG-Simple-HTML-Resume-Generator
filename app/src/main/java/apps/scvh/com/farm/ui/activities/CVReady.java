@@ -42,9 +42,6 @@ public class CVReady extends AppCompatActivity {
     @Named("Renderer")
     CVRenderer renderer;
     @Inject
-    @Named("FSWorker")
-    FSWorker fsWorker;
-    @Inject
     @Named("viewChecker")
     ViewChecker viewChecker;
 
@@ -72,6 +69,7 @@ public class CVReady extends AppCompatActivity {
         if (!isFilePathNull()) {
             File file = new File(new File(folderPath), fileName.getText().toString() + getString
                     (R.string.file_type));
+            FSWorker fsWorker = new FSWorker(this);
             fsWorker.execute(new CVHolder(FSStates.WRITE, file, cv));
         } else {
             Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
@@ -80,6 +78,7 @@ public class CVReady extends AppCompatActivity {
 
     @Click(R.id.open)
     void previewCV() {
+        FSWorker fsWorker = new FSWorker(this);
         fsWorker.execute(new CVHolder(FSStates.PREVIEW, null, cv));
     }
 
@@ -88,6 +87,7 @@ public class CVReady extends AppCompatActivity {
         if (!isFilePathNull()) {
             File file = new File(new File(folderPath), fileName.getText().toString() + getString
                     (R.string.file_type));
+            FSWorker fsWorker = new FSWorker(this);
             fsWorker.execute(new CVHolder(FSStates.WRITEANDOPEN, file, cv));
         } else {
             Toast.makeText(this, getString(R.string.null_file), Toast.LENGTH_SHORT).show();
