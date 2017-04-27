@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
+import com.tom_roush.pdfbox.util.PDFBoxResourceLoader;
 
 import net.rdrei.android.dirchooser.DirectoryChooserActivity;
 import net.rdrei.android.dirchooser.DirectoryChooserConfig;
@@ -23,11 +24,11 @@ import javax.inject.Named;
 
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.ui.workers.ViewChecker;
-import apps.scvh.com.farm.util.FSStates;
 import apps.scvh.com.farm.util.cv.CV;
 import apps.scvh.com.farm.util.cv.CVHolder;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;
 import apps.scvh.com.farm.util.di.ObjectProvider;
+import apps.scvh.com.farm.util.enums.FSStates;
 import apps.scvh.com.farm.util.workers.CVRenderer;
 import apps.scvh.com.farm.util.workers.FSWorker;
 
@@ -56,6 +57,7 @@ public class CVReady extends AppCompatActivity {
         setContentView(R.layout.activity_cvready);
         DaggerAppComponent.builder().objectProvider(new ObjectProvider
                 (this)).build().inject(this);
+        PDFBoxResourceLoader.init(this);
         try {
             cv = renderer.execute((CV) getIntent().getExtras().getSerializable("cv")).get();
         } catch (InterruptedException e) {

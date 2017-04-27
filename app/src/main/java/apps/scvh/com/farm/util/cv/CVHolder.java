@@ -5,7 +5,7 @@ import com.tom_roush.pdfbox.pdmodel.PDDocument;
 
 import java.io.File;
 
-import apps.scvh.com.farm.util.FSStates;
+import apps.scvh.com.farm.util.enums.FSStates;
 
 public class CVHolder {
 

@@ -9,21 +9,23 @@ import com.tom_roush.pdfbox.pdmodel.PDPage;
 import com.tom_roush.pdfbox.pdmodel.PDPageContentStream;
 import com.tom_roush.pdfbox.pdmodel.font.PDFont;
 import com.tom_roush.pdfbox.pdmodel.font.PDType1Font;
-import com.tom_roush.pdfbox.util.PDFBoxResourceLoader;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import apps.scvh.com.farm.util.cv.CV;
+import apps.scvh.com.farm.util.enums.PdfLinePositions;
 
 public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
+
+    private Context context;
 
     private PDFont font;
     private int progress;
 
     public CVRenderer(Context context) {
-        PDFBoxResourceLoader.init(context);
+        this.context = context;
     }
 
     private PDDocument renderCV(CV cv) {
@@ -55,6 +57,8 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
         try {
             font = PDType1Font.COURIER;
             stream.setFont(font, 28);
+            stream.moveTextPositionByAmount(PdfLinePositions.START_OF_LINE.getCoordinate(),
+                    PdfLinePositions.TOP_LEVEL.getCoordinate());
             stream.showText(name);
         } catch (IOException e) {
             e.printStackTrace();
