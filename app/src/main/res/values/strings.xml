@@ -36,4 +36,6 @@
     <string name="temporary_file_name">temporary_cv.pdf</string>
     <string name="null_field">Field is empty</string>
     <string name="null_file">File is not set</string>
+    <string name="pdf_render_debug">PDF Rendering</string>
+    <string name="pdf_render_null">This field is null.</string>
 </resources>
