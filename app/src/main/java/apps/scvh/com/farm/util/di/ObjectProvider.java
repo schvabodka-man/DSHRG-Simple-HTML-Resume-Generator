@@ -8,6 +8,7 @@ import apps.scvh.com.farm.ui.workers.IgnoredFieldsWorker;
 import apps.scvh.com.farm.ui.workers.TextBoxFactory;
 import apps.scvh.com.farm.ui.workers.ViewChecker;
 import apps.scvh.com.farm.util.workers.CVRenderer;
+import apps.scvh.com.farm.util.workers.PdfRenderHelper;
 import dagger.Module;
 import dagger.Provides;
 
@@ -44,4 +45,9 @@ public class ObjectProvider {
         return new CVRenderer(context);
     }
 
+    @Provides
+    @Named("RendererHelper")
+    PdfRenderHelper getRendererHelper() {
+        return new PdfRenderHelper(context);
+    }
 }

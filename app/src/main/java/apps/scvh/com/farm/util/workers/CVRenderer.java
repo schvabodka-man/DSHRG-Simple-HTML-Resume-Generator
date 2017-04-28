@@ -10,14 +10,17 @@ import com.tom_roush.pdfbox.pdmodel.PDPage;
 import com.tom_roush.pdfbox.pdmodel.PDPageContentStream;
 import com.tom_roush.pdfbox.pdmodel.font.PDType1Font;
 
-import org.apache.commons.lang3.text.WordUtils;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.util.cv.CV;
+import apps.scvh.com.farm.util.di.DaggerAppComponent;
+import apps.scvh.com.farm.util.di.ObjectProvider;
 import apps.scvh.com.farm.util.enums.CVFields;
 import apps.scvh.com.farm.util.enums.PdfLinePositions;
 
@@ -25,10 +28,16 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
 
     private Context context;
 
+    @Inject
+    @Named("RendererHelper")
+    PdfRenderHelper renderHelper;
+
     private int progress;
 
     public CVRenderer(Context context) {
         this.context = context;
+        DaggerAppComponent.builder().objectProvider(new
+                ObjectProvider(context)).build().inject(this);
     }
 
     private PDDocument renderCV(CV cv) {
@@ -60,7 +69,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
 
     private void drawName(PDPageContentStream stream, String name) {
         try {
-            printWrappedText(name, stream);
+            renderHelper.printWrappedText(name, stream);
             stream.setLeading(PdfLinePositions.BIG_LEADING.getCoordinate());
         } catch (IOException e) {
             e.printStackTrace();
@@ -70,7 +79,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
     private void drawAbout(PDPageContentStream stream, String about) {
         try {
             stream.newLine();
-            printWrappedText(about, stream);
+            renderHelper.printWrappedText(about, stream);
             stream.newLine();
         } catch (IOException e) {
             e.printStackTrace();
@@ -81,11 +90,11 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
             throws IOException {
         if (!list.isEmpty()) {
             Iterator<String> iterator = list.iterator();
-            stream.showText(getStringForField(flag));
+            stream.showText(renderHelper.getStringForField(flag));
             stream.setLeading(PdfLinePositions.SMALL_LEADING.getCoordinate());
             stream.newLine();
             while (iterator.hasNext()) {
-                printWrappedText(iterator.next(), stream);
+                renderHelper.printWrappedText(iterator.next(), stream);
                 if (iterator.hasNext()) {
                     stream.newLine();
                 }
@@ -95,40 +104,6 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
         } else {
             Log.d(context.getString(R.string.pdf_render_debug), context.getString(R.string
                     .pdf_render_null));
-        }
-    }
-
-    private String getStringForField(CVFields flag) {
-        switch (flag) {
-            case EDUCATION:
-                return context.getString(R.string.education);
-            case EXPERIENCE:
-                return context.getString(R.string.experience);
-            case LINKS:
-                return context.getString(R.string.links);
-            case PROJECTS:
-                return context.getString(R.string.personal_projects);
-            case PRIMARY_SKILLS:
-                return context.getString(R.string.primary_skills);
-            case SECONDARY_SKILLS:
-                return context.getString(R.string.secondary_skills);
-            case OTHER_SKILLS:
-                return context.getString(R.string.other_skills);
-        }
-        return ""; //It's here JFL
-    }
-
-    private void printWrappedText(String text, PDPageContentStream stream) {
-        //Very interesting solution on this problem, I found on stackoverflow
-        String[] wrapped = WordUtils.wrap(text, 100).split("\\r?\\n");
-        String character;
-        for (int i = 0; i < wrapped.length; i++) {
-            character = wrapped[i];
-            try {
-                stream.showText(character);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
