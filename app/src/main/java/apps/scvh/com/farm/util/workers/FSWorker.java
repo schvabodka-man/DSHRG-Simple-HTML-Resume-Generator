@@ -45,15 +45,11 @@ public class FSWorker extends AsyncTask<CVHolder, Integer, Void> {
     }
 
     private void previewDocument(String document) {
-        try {
-            File file = File.createTempFile(context.getString(R.string.temporary_file_name),
-                    null, context.getCacheDir());
-            saveDocument(document, file);
-            openDocument(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setType(context.getString(R.string.mime_type));
+        intent.putExtra(Intent.EXTRA_HTML_TEXT, document);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        context.startActivity(intent);
     }
 
     @Override

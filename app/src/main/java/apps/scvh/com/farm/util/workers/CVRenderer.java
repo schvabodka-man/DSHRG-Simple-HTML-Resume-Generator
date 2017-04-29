@@ -4,6 +4,8 @@ package apps.scvh.com.farm.util.workers;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.jrummyapps.android.util.HtmlBuilder;
 
@@ -23,10 +25,12 @@ import apps.scvh.com.farm.util.enums.CVFields;
 public class CVRenderer extends AsyncTask<CV, Integer, String> {
 
     private Context context;
+    private ProgressBar bar;
 
     @Inject
     @Named("RendererHelper")
     RenderHelper renderHelper;
+
 
     private int progress;
 
@@ -67,6 +71,19 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
             Log.d(context.getString(R.string.pdf_render_debug), context.getString(R.string
                     .pdf_render_null));
         }
+        publishProgress(1);
+    }
+
+    public void setBar(ProgressBar bar) {
+        this.bar = bar;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        bar.setVisibility(View.VISIBLE);
+        bar.setProgress(0);
+        bar.setMax(7);
     }
 
     @Override
@@ -74,4 +91,16 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
         return renderCV(params[0]);
     }
 
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        bar.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        super.onProgressUpdate(values);
+        progress = progress + values[0];
+        bar.setProgress(progress);
+    }
 }
