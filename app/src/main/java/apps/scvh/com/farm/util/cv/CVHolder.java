@@ -1,25 +1,23 @@
 package apps.scvh.com.farm.util.cv;
 
 
-import com.tom_roush.pdfbox.pdmodel.PDDocument;
-
 import java.io.File;
 
 import apps.scvh.com.farm.util.enums.FSStates;
 
 public class CVHolder {
 
-    private PDDocument cv;
+    private String cv;
     private File file;
     private FSStates flag;
 
-    public CVHolder(FSStates flag, File file, PDDocument cv) {
+    public CVHolder(FSStates flag, File file, String cv) {
         this.flag = flag;
         this.file = file;
         this.cv = cv;
     }
 
-    public PDDocument getCv() {
+    public String getCv() {
         return cv;
     }
 

@@ -5,10 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.tom_roush.pdfbox.pdmodel.PDDocument;
-import com.tom_roush.pdfbox.pdmodel.PDPage;
-import com.tom_roush.pdfbox.pdmodel.PDPageContentStream;
-import com.tom_roush.pdfbox.pdmodel.font.PDType1Font;
+import com.jrummyapps.android.util.HtmlBuilder;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,15 +19,14 @@ import apps.scvh.com.farm.util.cv.CV;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;
 import apps.scvh.com.farm.util.di.ObjectProvider;
 import apps.scvh.com.farm.util.enums.CVFields;
-import apps.scvh.com.farm.util.enums.PdfLinePositions;
 
-public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
+public class CVRenderer extends AsyncTask<CV, Integer, String> {
 
     private Context context;
 
     @Inject
     @Named("RendererHelper")
-    PdfRenderHelper renderHelper;
+    RenderHelper renderHelper;
 
     private int progress;
 
@@ -40,67 +36,33 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
                 ObjectProvider(context)).build().inject(this);
     }
 
-    private PDDocument renderCV(CV cv) {
-        PDPage page = new PDPage();
-        PDDocument document = new PDDocument();
-        document.addPage(page);
+    private String renderCV(CV cv) {
+        HtmlBuilder builder = new HtmlBuilder();
+        builder.h1(cv.getFullName());
+        builder.h1(cv.getAbout());
         try {
-            PDPageContentStream contentStream = new PDPageContentStream(document, page);
-            contentStream.beginText();
-            contentStream.setFont(PDType1Font.COURIER, 28);
-            contentStream.newLineAtOffset(PdfLinePositions.START_OF_LINE.getCoordinate(),
-                    PdfLinePositions.TOP_LEVEL.getCoordinate());
-            drawName(contentStream, cv.getFullName());
-            drawAbout(contentStream, cv.getAbout());
-            drawList(contentStream, cv.getEducation(), CVFields.EDUCATION);
-            drawList(contentStream, cv.getExperience(), CVFields.EXPERIENCE);
-            drawList(contentStream, cv.getLinks(), CVFields.LINKS);
-            drawList(contentStream, cv.getProjects(), CVFields.PROJECTS);
-            drawList(contentStream, cv.getPrimarySkills(), CVFields.PRIMARY_SKILLS);
-            drawList(contentStream, cv.getSecondarySkills(), CVFields.SECONDARY_SKILLS);
-            drawList(contentStream, cv.getOtherSkills(), CVFields.OTHER_SKILLS);
-            contentStream.endText();
-            contentStream.close();
+            drawList(builder, cv.getEducation(), CVFields.EDUCATION);
+            drawList(builder, cv.getExperience(), CVFields.EXPERIENCE);
+            drawList(builder, cv.getLinks(), CVFields.LINKS);
+            drawList(builder, cv.getProjects(), CVFields.PROJECTS);
+            drawList(builder, cv.getPrimarySkills(), CVFields.PRIMARY_SKILLS);
+            drawList(builder, cv.getSecondarySkills(), CVFields.SECONDARY_SKILLS);
+            drawList(builder, cv.getOtherSkills(), CVFields.OTHER_SKILLS);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return document;
+        return builder.toString();
     }
 
-    private void drawName(PDPageContentStream stream, String name) {
-        try {
-            renderHelper.printWrappedText(name, stream);
-            stream.setLeading(PdfLinePositions.BIG_LEADING.getCoordinate());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    private void drawAbout(PDPageContentStream stream, String about) {
-        try {
-            stream.newLine();
-            renderHelper.printWrappedText(about, stream);
-            stream.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void drawList(PDPageContentStream stream, ArrayList<String> list, CVFields flag)
+    private void drawList(HtmlBuilder builder, ArrayList<String> list, CVFields flag)
             throws IOException {
         if (!list.isEmpty()) {
             Iterator<String> iterator = list.iterator();
-            stream.showText(renderHelper.getStringForField(flag));
-            stream.setLeading(PdfLinePositions.SMALL_LEADING.getCoordinate());
-            stream.newLine();
+            builder.h1(renderHelper.getStringForField(flag));
             while (iterator.hasNext()) {
-                renderHelper.printWrappedText(iterator.next(), stream);
-                if (iterator.hasNext()) {
-                    stream.newLine();
-                }
+                builder.h2(iterator.next());
             }
-            stream.setLeading(PdfLinePositions.BIG_LEADING.getCoordinate());
-            stream.newLine();
         } else {
             Log.d(context.getString(R.string.pdf_render_debug), context.getString(R.string
                     .pdf_render_null));
@@ -108,7 +70,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, PDDocument> {
     }
 
     @Override
-    protected PDDocument doInBackground(CV... params) {
+    protected String doInBackground(CV... params) {
         return renderCV(params[0]);
     }
 

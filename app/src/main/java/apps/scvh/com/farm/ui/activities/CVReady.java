@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.tom_roush.pdfbox.pdmodel.PDDocument;
 import com.tom_roush.pdfbox.util.PDFBoxResourceLoader;
 
 import net.rdrei.android.dirchooser.DirectoryChooserActivity;
@@ -35,7 +34,7 @@ import apps.scvh.com.farm.util.workers.FSWorker;
 @EActivity(R.layout.activity_cvready)
 public class CVReady extends AppCompatActivity {
 
-    private PDDocument cv;
+    private String cv;
     private String folderPath;
 
     @Inject

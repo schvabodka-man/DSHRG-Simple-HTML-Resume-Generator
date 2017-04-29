@@ -3,18 +3,14 @@ package apps.scvh.com.farm.util.workers;
 
 import android.content.Context;
 
-import com.tom_roush.pdfbox.pdmodel.PDPageContentStream;
-
-import java.io.IOException;
-
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.util.enums.CVFields;
 
-public class PdfRenderHelper {
+public class RenderHelper {
 
     private Context context;
 
-    public PdfRenderHelper(Context context) {
+    public RenderHelper(Context context) {
         this.context = context;
     }
 
@@ -38,12 +34,4 @@ public class PdfRenderHelper {
         return ""; //It's here JFL
     }
 
-    void printWrappedText(String text, PDPageContentStream stream) {
-        try {
-            stream.showText(text);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 }

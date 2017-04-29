@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 
-import com.tom_roush.pdfbox.pdmodel.PDDocument;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,10 +22,11 @@ public class FSWorker extends AsyncTask<CVHolder, Integer, Void> {
         this.context = context;
     }
 
-    private void saveDocument(PDDocument pdfDocument, File file) {
+    private void saveDocument(String document, File file) {
         try {
             file.delete();
-            pdfDocument.save(new FileOutputStream(file));
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(document.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,21 +34,21 @@ public class FSWorker extends AsyncTask<CVHolder, Integer, Void> {
 
     private void openDocument(File file) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.fromFile(file), context.getString(R.string.pdf_mime_type));
+        intent.setDataAndType(Uri.fromFile(file), context.getString(R.string.mime_type));
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         context.startActivity(intent);
     }
 
-    private void saveAndOpenDocument(PDDocument pdfDocument, File file) {
-        saveDocument(pdfDocument, file);
+    private void saveAndOpenDocument(String document, File file) {
+        saveDocument(document, file);
         openDocument(file);
     }
 
-    private void previewDocument(PDDocument pdfDocument) {
+    private void previewDocument(String document) {
         try {
             File file = File.createTempFile(context.getString(R.string.temporary_file_name),
                     null, context.getCacheDir());
-            saveDocument(pdfDocument, file);
+            saveDocument(document, file);
             openDocument(file);
         } catch (IOException e) {
             e.printStackTrace();
