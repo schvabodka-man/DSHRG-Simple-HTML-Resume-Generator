@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import net.rdrei.android.dirchooser.DirectoryChooserActivity;
@@ -45,8 +44,6 @@ public class CVReady extends AppCompatActivity {
 
     @ViewById(R.id.file_name)
     EditText fileName;
-    @ViewById(R.id.progress_bar)
-    ProgressBar bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +51,6 @@ public class CVReady extends AppCompatActivity {
         setContentView(R.layout.activity_cvready);
         DaggerAppComponent.builder().objectProvider(new ObjectProvider
                 (this)).build().inject(this);
-        renderer.setBar(bar);
         try {
             cv = renderer.execute((CV) getIntent().getExtras().getSerializable("cv")).get();
         } catch (InterruptedException e) {

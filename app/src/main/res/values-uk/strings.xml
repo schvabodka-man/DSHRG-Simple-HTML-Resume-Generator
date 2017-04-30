@@ -25,4 +25,6 @@
     <string name="new_line">ДОДАТИ</string>
     <string name="choose_folder">ПАПКА</string>
     <string name="create_cv">СТВОРИТИ РЕЗЮМЕ</string>
+    <string name="loading">Завантаження</string>
+    <string name="please_wait">Будь-ласка зачекайте...</string>
 </resources>

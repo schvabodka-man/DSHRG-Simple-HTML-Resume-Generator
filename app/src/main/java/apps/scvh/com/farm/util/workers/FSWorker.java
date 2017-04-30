@@ -1,6 +1,7 @@
 package apps.scvh.com.farm.util.workers;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,9 +17,10 @@ import apps.scvh.com.farm.util.cv.CVHolder;
 public class FSWorker extends AsyncTask<CVHolder, Integer, Void> {
 
     private Context context;
-    private int progress;
+    private ProgressDialog bar;
 
     public FSWorker(Context context) {
+        bar = new ProgressDialog(context);
         this.context = context;
     }
 
@@ -65,5 +67,19 @@ public class FSWorker extends AsyncTask<CVHolder, Integer, Void> {
                 saveAndOpenDocument(params[0].getCv(), params[0].getFile());
         }
         return null;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        bar.show();
+        bar.setTitle(context.getString(R.string.loading));
+        bar.setMessage(context.getString(R.string.please_wait));
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+        bar.dismiss();
     }
 }

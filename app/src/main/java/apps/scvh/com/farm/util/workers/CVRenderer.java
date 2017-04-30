@@ -1,11 +1,10 @@
 package apps.scvh.com.farm.util.workers;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
-import android.widget.ProgressBar;
 
 import com.jrummyapps.android.util.HtmlBuilder;
 
@@ -25,16 +24,14 @@ import apps.scvh.com.farm.util.enums.CVFields;
 public class CVRenderer extends AsyncTask<CV, Integer, String> {
 
     private Context context;
-    private ProgressBar bar;
+    private ProgressDialog bar;
 
     @Inject
     @Named("RendererHelper")
     RenderHelper renderHelper;
 
-
-    private int progress;
-
     public CVRenderer(Context context) {
+        bar = new ProgressDialog(context);
         this.context = context;
         DaggerAppComponent.builder().objectProvider(new
                 ObjectProvider(context)).build().inject(this);
@@ -55,7 +52,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return builder.toString();
+        return builder.build().toString();
     }
 
 
@@ -71,19 +68,14 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
             Log.d(context.getString(R.string.pdf_render_debug), context.getString(R.string
                     .pdf_render_null));
         }
-        publishProgress(1);
-    }
-
-    public void setBar(ProgressBar bar) {
-        this.bar = bar;
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        bar.setVisibility(View.VISIBLE);
-        bar.setProgress(0);
-        bar.setMax(7);
+        bar.show();
+        bar.setTitle(context.getString(R.string.loading));
+        bar.setMessage(context.getString(R.string.please_wait));
     }
 
     @Override
@@ -94,13 +86,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        bar.setVisibility(View.GONE);
+        bar.dismiss();
     }
 
-    @Override
-    protected void onProgressUpdate(Integer... values) {
-        super.onProgressUpdate(values);
-        progress = progress + values[0];
-        bar.setProgress(progress);
-    }
 }

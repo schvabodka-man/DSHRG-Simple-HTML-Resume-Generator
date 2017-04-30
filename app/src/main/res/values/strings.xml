@@ -37,4 +37,6 @@
     <string name="null_file">File is not set</string>
     <string name="pdf_render_debug" translatable="false">PDF Rendering</string>
     <string name="pdf_render_null" translatable="false">This field is null.</string>
+    <string name="loading">Loading</string>
+    <string name="please_wait">Please Wait...</string>
 </resources>

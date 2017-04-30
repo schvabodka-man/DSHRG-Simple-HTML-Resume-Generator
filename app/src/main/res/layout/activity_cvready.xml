@@ -12,12 +12,6 @@
     tools:context="apps.scvh.com.farm.ui.activities.CVReady">
 
 
-    <ProgressBar
-        style="@style/Widget.AppCompat.ProgressBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/progress_bar"/>
-
     <EditText
         android:id="@+id/file_name"
         android:layout_width="100dp"
