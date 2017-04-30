@@ -12,7 +12,7 @@
     <string name="new_folder">Новая папка</string>
     <string name="null_field">Пустые поля</string>
     <string name="null_file">Не указан файл</string>
-    <string name="open" translatable="false">ПРЕВЬЮ</string>
+    <string name="open">ПРЕВЬЮ</string>
     <string name="other_skills">Другие навыки</string>
     <string name="personal_projects">Личные проекты</string>
     <string name="primary_skills">Главные навыки</string>
@@ -23,4 +23,6 @@
     <string name="save">СОХРАНИТЬ</string>
     <string name="save_and_open">СОХРАНИТЬ И ОТКРЫТЬ</string>
     <string name="new_line">ДОБАВИТЬ</string>
+    <string name="choose_folder">ПАПКА</string>
+    <string name="create_cv">СОЗДАТЬ РЕЗЮМЕ</string>
 </resources>

@@ -22,11 +22,11 @@
     <string name="other_skills">Other skills</string>
     <string name="skill">Skill</string>
     <string name="link">Link</string>
-    <string name="create_cv" translatable="false">COMPOSE CV</string>
+    <string name="create_cv">COMPOSE CV</string>
     <string name="save">SAVE</string>
     <string name="open">PREVIEW</string>
     <string name="save_and_open">SAVE AND OPEN</string>
-    <string name="choose_folder" translatable="false">FOLDER</string>
+    <string name="choose_folder">FOLDER</string>
     <string name="new_folder">New folder</string>
     <string name="file_path" translatable="false">/storage/emulated/0</string>
     <string name="file_name">File name</string>

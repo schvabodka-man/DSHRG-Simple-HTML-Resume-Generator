@@ -23,4 +23,6 @@
     <string name="skills">Навички</string>
     <string name="title_activity_cvsettings">Налаштування</string>
     <string name="new_line">ДОДАТИ</string>
+    <string name="choose_folder">ПАПКА</string>
+    <string name="create_cv">СТВОРИТИ РЕЗЮМЕ</string>
 </resources>
