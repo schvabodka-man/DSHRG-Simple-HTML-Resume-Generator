@@ -39,18 +39,20 @@ public class RenderHelper {
         return ""; //It's here JFL
     }
 
-    private int getFontSize(TextTypes type) {
+    int getFontSize(TextTypes type) {
         switch (type) {
             case BIG_TEXT:
-                return preferences.getInt(context.getString(R.string.big_text_key), 23);
+                return Integer.parseInt(preferences.getString(context.getString(R.string
+                        .big_text_key), String.valueOf(23)));
             case SMALL_TEXT:
-                return preferences.getInt(context.getString(R.string.small_text), 16);
+                return Integer.parseInt(preferences.getString(context.getString(R.string
+                        .small_text_key), String.valueOf(23)));
             default:
                 return 14;
         }
     }
 
-    private GravityList getGravity(CVFields field) {
+    GravityList getGravity(CVFields field) {
         switch (field) {
             case EDUCATION:
                 return getGravityFromString(preferences.getString(context.getString(R.string
