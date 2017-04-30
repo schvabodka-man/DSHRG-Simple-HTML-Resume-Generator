@@ -52,7 +52,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return builder.build().toString();
+        return builder.toString(); //i'm not building it, i just want html
     }
 
 

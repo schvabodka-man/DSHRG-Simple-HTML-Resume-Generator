@@ -7,8 +7,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import apps.scvh.com.farm.R;
@@ -27,8 +28,9 @@ public class FSWorker extends AsyncTask<CVHolder, Integer, Void> {
     private void saveDocument(String document, File file) {
         try {
             file.delete();
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            fileOutputStream.write(document.getBytes());
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(new String(document.getBytes(), "UTF-8"));
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
