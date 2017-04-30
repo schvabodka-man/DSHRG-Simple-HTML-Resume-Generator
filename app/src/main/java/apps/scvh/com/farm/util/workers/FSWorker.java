@@ -36,6 +36,7 @@ public class FSWorker extends AsyncTask<CVHolder, Integer, Void> {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndType(Uri.fromFile(file), context.getString(R.string.mime_type));
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); // for cache
         context.startActivity(intent);
     }
 
@@ -45,11 +46,10 @@ public class FSWorker extends AsyncTask<CVHolder, Integer, Void> {
     }
 
     private void previewDocument(String document) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setType(context.getString(R.string.mime_type));
-        intent.putExtra(Intent.EXTRA_HTML_TEXT, document);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        context.startActivity(intent);
+        File file = new File(context.getExternalCacheDir(), context.getString(R.string
+                .temporary_file_name));
+        saveDocument(document, file);
+        openDocument(file);
     }
 
     @Override

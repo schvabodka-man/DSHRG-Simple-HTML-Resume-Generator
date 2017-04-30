@@ -33,7 +33,7 @@
     <string name="file_name">File name</string>
     <string name="file_type">.html</string>
     <string name="mime_type">text/html</string>
-    <string name="temporary_file_name">temporary_cv.pdf</string>
+    <string name="temporary_file_name">temporary_cv</string>
     <string name="null_field">Field is empty</string>
     <string name="null_file">File is not set</string>
     <string name="pdf_render_debug">PDF Rendering</string>
