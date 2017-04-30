@@ -2,40 +2,39 @@
     <string name="app_name">FARM!</string>
     <string name="title_activity_cvsettings">Settings</string>
     <string name="full_name">Full name</string>
-    <string name="full_name_key">fullname</string>
+    <string name="full_name_key" translatable="false">fullname</string>
     <string name="experience">Experience</string>
-    <string name="experience_key">exp</string>
+    <string name="experience_key" translatable="false">exp</string>
     <string name="education">Education</string>
-    <string name="education_key">edu</string>
+    <string name="education_key" translatable="false">edu</string>
     <string name="personal_projects">Personal projects</string>
-    <string name="personal_projects_key">personalproj</string>
+    <string name="personal_projects_key" translatable="false">personalproj</string>
     <string name="skills">Skills</string>
-    <string name="skills_key">skills</string>
+    <string name="skills_key" translatable="false">skills</string>
     <string name="about">About me</string>
-    <string name="about_key">about</string>
+    <string name="about_key" translatable="false">about</string>
     <string name="links">Links</string>
-    <string name="links_key">links</string>
+    <string name="links_key" translatable="false">links</string>
     <string name="cv_parts">CV Settings</string>
-    <string name="cv_layout">CV Layout</string>
     <string name="new_line">NEW</string>
     <string name="secondary_skills">Secondary skills</string>
     <string name="primary_skills">Primary skills</string>
     <string name="other_skills">Other skills</string>
     <string name="skill">Skill</string>
     <string name="link">Link</string>
-    <string name="create_cv">COMPOSE CV</string>
+    <string name="create_cv" translatable="false">COMPOSE CV</string>
     <string name="save">SAVE</string>
-    <string name="open">OPEN</string>
+    <string name="open">PREVIEW</string>
     <string name="save_and_open">SAVE AND OPEN</string>
-    <string name="choose_folder">FOLDER</string>
+    <string name="choose_folder" translatable="false">FOLDER</string>
     <string name="new_folder">New folder</string>
-    <string name="file_path">/storage/emulated/0</string>
+    <string name="file_path" translatable="false">/storage/emulated/0</string>
     <string name="file_name">File name</string>
-    <string name="file_type">.html</string>
-    <string name="mime_type">text/html</string>
-    <string name="temporary_file_name">temporary_cv</string>
+    <string name="file_type" translatable="false">.html</string>
+    <string name="mime_type" translatable="false">text/html</string>
+    <string name="temporary_file_name" translatable="false">temporary_cv</string>
     <string name="null_field">Field is empty</string>
     <string name="null_file">File is not set</string>
-    <string name="pdf_render_debug">PDF Rendering</string>
-    <string name="pdf_render_null">This field is null.</string>
+    <string name="pdf_render_debug" translatable="false">PDF Rendering</string>
+    <string name="pdf_render_null" translatable="false">This field is null.</string>
 </resources>

@@ -79,9 +79,6 @@ public class CVInput extends AppCompatActivity {
             case R.id.cv_parts:
                 startActivity(new Intent(this, CVSettings.class));
                 return true;
-            case R.id.cv_layout:
-                startActivity(new Intent(this, CVLayout_.class));
-                return true;
             default:
                 return true;
         }

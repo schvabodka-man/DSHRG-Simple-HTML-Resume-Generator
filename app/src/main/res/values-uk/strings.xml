@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FARM!</string>
+    <string name="about">Про мене</string>
+    <string name="cv_parts">Налаштування</string>
+    <string name="education">Освiта</string>
+    <string name="experience">Досвiд</string>
+    <string name="file_name">Iм\'я файлу</string>
+    <string name="full_name">Повне iм\'я</string>
+    <string name="link">Посилання</string>
+    <string name="links">Посилання</string>
+    <string name="new_folder">Нова папка</string>
+    <string name="null_field">Пустi поля</string>
+    <string name="null_file">Не вказано файл</string>
+    <string name="open">ПРЕВЬЮ</string>
+    <string name="other_skills">Iншi навички</string>
+    <string name="personal_projects">Особистi проекти</string>
+    <string name="primary_skills">Головнi навички</string>
+    <string name="save">ЗБЕРЕГТИ</string>
+    <string name="save_and_open">ЗБЕРЕГТИ I ВIДКРИТИ</string>
+    <string name="secondary_skills">Другоряднi навички</string>
+    <string name="skill">Навичка</string>
+    <string name="skills">Навички</string>
+    <string name="title_activity_cvsettings">Налаштування</string>
+    <string name="new_line">ДОДАТИ</string>
+</resources>
