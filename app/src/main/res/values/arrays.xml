@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gravityentries">
+        <item>@string/left</item>
+        <item>@string/right</item>
+        <item>@string/center</item>
+    </string-array>
+    <string-array name="gravityvalues">
+        <item>@string/left_key</item>
+        <item>@string/right_key</item>
+        <item>@string/center_key</item>
+    </string-array>
+</resources>

@@ -30,14 +30,77 @@
         android:defaultValue="23"
         android:inputType="number"
         android:key="@string/big_text_key"
-        android:text="@string/big_text_full"
-        android:title="@string/big_text"/>
+        android:title="@string/big_text"
+        android:summary="@string/big_text_full"/>
 
     <EditTextPreference
         android:defaultValue="14"
         android:inputType="number"
         android:key="@string/small_text_key"
-        android:text="@string/small_text_full"
-        android:title="@string/small_text"/>
+        android:title="@string/small_text"
+        android:summary="@string/small_text_full"/>
+
+    <ListPreference
+        android:key="@string/name_position_key"
+        android:title="@string/name_position"
+        android:defaultValue="@string/left_key"
+        android:entries="@array/gravityentries"
+        android:entryValues="@array/gravityvalues"/>
+
+    <ListPreference
+        android:key="@string/about_position_key"
+        android:title="@string/about_position"
+        android:defaultValue="@string/left_key"
+        android:entries="@array/gravityentries"
+        android:entryValues="@array/gravityvalues"/>
+
+    <ListPreference
+        android:key="@string/education_position_key"
+        android:title="@string/education_position"
+        android:defaultValue="@string/left_key"
+        android:entries="@array/gravityentries"
+        android:entryValues="@array/gravityvalues"/>
+
+    <ListPreference
+        android:key="@string/experience_position_key"
+        android:title="@string/experience_position"
+        android:defaultValue="@string/left_key"
+        android:entries="@array/gravityentries"
+        android:entryValues="@array/gravityvalues"/>
+
+    <ListPreference
+        android:key="@string/links_position_key"
+        android:title="@string/links_position"
+        android:defaultValue="@string/left_key"
+        android:entries="@array/gravityentries"
+        android:entryValues="@array/gravityvalues"/>
+
+    <ListPreference
+        android:key="@string/projects_position_key"
+        android:title="@string/projects_position"
+        android:defaultValue="@string/left_key"
+        android:entries="@array/gravityentries"
+        android:entryValues="@array/gravityvalues"/>
+
+    <ListPreference
+        android:key="@string/primary_skills_position_key"
+        android:title="@string/primary_skills_position"
+        android:defaultValue="@string/left_key"
+        android:entries="@array/gravityentries"
+        android:entryValues="@array/gravityvalues"/>
+
+    <ListPreference
+        android:key="@string/secondary_skills_position_key"
+        android:title="@string/secondary_skills_position"
+        android:defaultValue="@string/left_key"
+        android:entries="@array/gravityentries"
+        android:entryValues="@array/gravityvalues"/>
+
+    <ListPreference
+        android:key="@string/other_skills_position_key"
+        android:title="@string/other_skills_position"
+        android:defaultValue="@string/left_key"
+        android:entries="@array/gravityentries"
+        android:entryValues="@array/gravityvalues"/>
 
 </PreferenceScreen>

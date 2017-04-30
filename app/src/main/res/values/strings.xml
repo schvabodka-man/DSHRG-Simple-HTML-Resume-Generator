@@ -45,4 +45,28 @@
     <string name="small_text">Small Text</string>
     <string name="small_text_full">Font size of regular text</string>
     <string name="small_text_key" translatable="false">smalltext</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="center">Center</string>
+    <string name="left_key" translatable="false">left</string>
+    <string name="right_key" translatable="false">right</string>
+    <string name="center_key" translatable="false">center</string>
+    <string name="name_position">Name Position</string>
+    <string name="name_position_key" translatable="false">name_position</string>
+    <string name="about_position">About Position</string>
+    <string name="about_position_key" translatable="false">about_position</string>
+    <string name="education_position">Education Position</string>
+    <string name="education_position_key" translatable="false">education_position</string>
+    <string name="experience_position">Experience Position</string>
+    <string name="experience_position_key" translatable="false">experience_position</string>
+    <string name="links_position">Links Position</string>
+    <string name="links_position_key" translatable="false">links_position</string>
+    <string name="projects_position">Projects Position</string>
+    <string name="projects_position_key" translatable="false">projects_position</string>
+    <string name="primary_skills_position">Primary Skills Position</string>
+    <string name="primary_skills_position_key" translatable="false">primary_skills_position</string>
+    <string name="secondary_skills_position">Secondary Skills Position</string>
+    <string name="secondary_skills_position_key" translatable="false">secondary_skills_position</string>
+    <string name="other_skills_position">Other Skills Position</string>
+    <string name="other_skills_position_key" translatable="false">other_skills_position</string>
 </resources>
