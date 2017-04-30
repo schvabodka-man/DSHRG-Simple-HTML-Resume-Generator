@@ -2,6 +2,7 @@ package apps.scvh.com.farm.util.workers;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.util.enums.CVFields;
@@ -9,9 +10,11 @@ import apps.scvh.com.farm.util.enums.CVFields;
 public class RenderHelper {
 
     private Context context;
+    private SharedPreferences preferences;
 
-    public RenderHelper(Context context) {
+    public RenderHelper(Context context, SharedPreferences preferences) {
         this.context = context;
+        this.preferences = preferences;
     }
 
     String getStringForField(CVFields flag) {
@@ -34,4 +37,7 @@ public class RenderHelper {
         return ""; //It's here JFL
     }
 
+    private int getFontSize() {
+        return 0;
+    }
 }

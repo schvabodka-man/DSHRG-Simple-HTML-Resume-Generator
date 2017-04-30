@@ -26,4 +26,18 @@
         android:key="@string/links_key"
         android:title="@string/links"/>
 
+    <EditTextPreference
+        android:defaultValue="23"
+        android:inputType="number"
+        android:key="@string/big_text_key"
+        android:text="@string/big_text_full"
+        android:title="@string/big_text"/>
+
+    <EditTextPreference
+        android:defaultValue="14"
+        android:inputType="number"
+        android:key="@string/small_text_key"
+        android:text="@string/small_text_full"
+        android:title="@string/small_text"/>
+
 </PreferenceScreen>

@@ -1,6 +1,7 @@
 package apps.scvh.com.farm.util.di;
 
 import android.content.Context;
+import android.preference.PreferenceManager;
 
 import javax.inject.Named;
 
@@ -36,7 +37,8 @@ public class ObjectProvider {
     @Provides
     @Named("IgnoreHelper")
     IgnoredFieldsWorker getWorker() {
-        return new IgnoredFieldsWorker(context);
+        return new IgnoredFieldsWorker(context, PreferenceManager.getDefaultSharedPreferences
+                (context));
     }
 
     @Provides
@@ -48,6 +50,6 @@ public class ObjectProvider {
     @Provides
     @Named("RendererHelper")
     RenderHelper getRendererHelper() {
-        return new RenderHelper(context);
+        return new RenderHelper(context, PreferenceManager.getDefaultSharedPreferences(context));
     }
 }

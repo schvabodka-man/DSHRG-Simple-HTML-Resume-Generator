@@ -38,5 +38,11 @@
     <string name="pdf_render_debug" translatable="false">PDF Rendering</string>
     <string name="pdf_render_null" translatable="false">This field is null.</string>
     <string name="loading">Loading</string>
-    <string name="please_wait">Please Wait...</string>
+    <string name="please_wait">Please Wait…</string>
+    <string name="big_text">Big Text</string>
+    <string name="big_text_full">Font size of headers</string>
+    <string name="big_text_key" translatable="false">bigtext</string>
+    <string name="small_text">Small Text</string>
+    <string name="small_text_full">Font size of regular text</string>
+    <string name="small_text_key" translatable="false">smalltext</string>
 </resources>

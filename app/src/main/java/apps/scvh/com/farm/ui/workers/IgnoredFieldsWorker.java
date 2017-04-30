@@ -3,7 +3,6 @@ package apps.scvh.com.farm.ui.workers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import java.util.ArrayList;
 
@@ -14,9 +13,9 @@ public class IgnoredFieldsWorker {
     private Context context;
     private SharedPreferences prefs;
 
-    public IgnoredFieldsWorker(Context context) {
+    public IgnoredFieldsWorker(Context context, SharedPreferences prefs) {
         this.context = context;
-        prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.prefs = prefs;
     }
 
     public ArrayList<Integer> getListofIgnoredFields() {

@@ -26,5 +26,9 @@
     <string name="choose_folder">ПАПКА</string>
     <string name="create_cv">СТВОРИТИ РЕЗЮМЕ</string>
     <string name="loading">Завантаження</string>
-    <string name="please_wait">Будь-ласка зачекайте...</string>
+    <string name="please_wait">Будь-ласка зачекайте…</string>
+    <string name="big_text">Великий текст</string>
+    <string name="big_text_full">Розмiр заголовкiв</string>
+    <string name="small_text">Маленький текст</string>
+    <string name="small_text_full">Розмiр тексту</string>
 </resources>
