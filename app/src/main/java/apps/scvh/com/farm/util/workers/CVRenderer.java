@@ -47,8 +47,12 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
         builder.append(context.getString(R.string.style_close));
         builder.append(context.getString(R.string.head_close));
         builder.append(context.getString(R.string.body_open));
+        builder.append(context.getString(R.string.name_div));
         builder.h1(cv.getFullName());
+        builder.append(context.getString(R.string.div_close));
+        builder.append(context.getString(R.string.about_div));
         builder.h2(cv.getAbout());
+        builder.append(context.getString(R.string.div_close));
         try {
             drawList(builder, cv.getEducation(), CVFields.EDUCATION);
             drawList(builder, cv.getExperience(), CVFields.EXPERIENCE);
@@ -68,11 +72,14 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
     private void drawList(HtmlBuilder builder, ArrayList<String> list, CVFields flag)
             throws IOException {
         if (!list.isEmpty()) {
+            String getShit = renderHelper.getDivWithClassForField(flag);
+            builder.append(renderHelper.getDivWithClassForField(flag));
             Iterator<String> iterator = list.iterator();
             builder.h1(renderHelper.getStringForField(flag));
             while (iterator.hasNext()) {
                 builder.h2(iterator.next());
             }
+            builder.append(context.getString(R.string.div_close));
         } else {
             Log.d(context.getString(R.string.pdf_render_debug), context.getString(R.string
                     .pdf_render_null));

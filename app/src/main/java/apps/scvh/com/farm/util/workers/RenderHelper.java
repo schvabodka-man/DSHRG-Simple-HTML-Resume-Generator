@@ -39,6 +39,30 @@ public class RenderHelper {
         return ""; //It's here JFL
     }
 
+    String getDivWithClassForField(CVFields flag) {
+        switch (flag) {
+            case EDUCATION:
+                return context.getString(R.string.education_div);
+            case EXPERIENCE:
+                return context.getString(R.string.experience_div);
+            case LINKS:
+                return context.getString(R.string.links_div);
+            case PROJECTS:
+                return context.getString(R.string.projects_div);
+            case PRIMARY_SKILLS:
+                return context.getString(R.string.primary_skills_div);
+            case SECONDARY_SKILLS:
+                return context.getString(R.string.secondary_skills_div);
+            case OTHER_SKILLS:
+                return context.getString(R.string.other_skills_div);
+            case NAME:
+                return context.getString(R.string.name_div);
+            case ABOUT:
+                return context.getString(R.string.about_div);
+        }
+        return "";
+    }
+
     int getFontSize(TextTypes type) {
         switch (type) {
             case BIG_TEXT:
