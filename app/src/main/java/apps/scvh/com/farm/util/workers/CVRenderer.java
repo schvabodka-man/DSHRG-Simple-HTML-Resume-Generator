@@ -44,6 +44,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
         builder.append(context.getString(R.string.utf_encoding));
         builder.append(context.getString(R.string.style_open));
         setFonts(builder);
+        setGravity(builder);
         builder.append(context.getString(R.string.style_close));
         builder.append(context.getString(R.string.head_close));
         builder.append(context.getString(R.string.body_open));
@@ -72,7 +73,6 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
     private void drawList(HtmlBuilder builder, ArrayList<String> list, CVFields flag)
             throws IOException {
         if (!list.isEmpty()) {
-            String getShit = renderHelper.getDivWithClassForField(flag);
             builder.append(renderHelper.getDivWithClassForField(flag));
             Iterator<String> iterator = list.iterator();
             builder.h1(renderHelper.getStringForField(flag));
@@ -91,6 +91,27 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
                 renderHelper.getFontSize(TextTypes.BIG_TEXT)));
         builder.append(String.format(context.getString(R.string.text_font_size),
                 renderHelper.getFontSize(TextTypes.SMALL_TEXT)));
+    }
+
+    private void setGravity(HtmlBuilder builder) {
+        builder.append(String.format(context.getString(R.string.name_css), renderHelper
+                .getGravity(CVFields.NAME)));
+        builder.append(String.format(context.getString(R.string.about_css), renderHelper
+                .getGravity(CVFields.ABOUT)));
+        builder.append(String.format(context.getString(R.string.education_css), renderHelper
+                .getGravity(CVFields.EXPERIENCE)));
+        builder.append(String.format(context.getString(R.string.experience_css), renderHelper
+                .getGravity(CVFields.LINKS)));
+        builder.append(String.format(context.getString(R.string.links_css), renderHelper
+                .getGravity(CVFields.LINKS)));
+        builder.append(String.format(context.getString(R.string.projects_css), renderHelper
+                .getGravity(CVFields.PROJECTS)));
+        builder.append(String.format(context.getString(R.string.primary_skills_css), renderHelper
+                .getGravity(CVFields.PRIMARY_SKILLS)));
+        builder.append(String.format(context.getString(R.string.secondary_skills_css), renderHelper
+                .getGravity(CVFields.SECONDARY_SKILLS)));
+        builder.append(String.format(context.getString(R.string.other_skills_css), renderHelper
+                .getGravity(CVFields.OTHER_SKILLS)));
     }
 
     @Override

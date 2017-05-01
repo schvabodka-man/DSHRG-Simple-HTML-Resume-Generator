@@ -9,6 +9,15 @@
     <string name="utf_encoding">&lt;meta charset="UTF-8"&gt;\n</string>
     <string name="header_font_size">h1 {font-size: %1$dpx;}\n</string>
     <string name="text_font_size">h2 {font-size: %1$dpx;}\n</string>
+    <string name="name_css">.name {text-align: %1$s;}\n</string>
+    <string name="about_css">.about {text-align: %1$s;}\n</string>
+    <string name="education_css">.education {text-align: %1$s;}\n</string>
+    <string name="experience_css">.experience {text-align: %1$s;}\n</string>
+    <string name="links_css">.links {text-align: %1$s;}\n</string>
+    <string name="projects_css">.projects {text-align: %1$s;}\n</string>
+    <string name="primary_skills_css">.primary_skills {text-align: %1$s;}\n</string>
+    <string name="secondary_skills_css">.secondary_skills {text-align: %1$s;}\n</string>
+    <string name="other_skills_css">.other_skills {text-align: %1$s;}\n</string>
     <string name="name_div">&lt;div class="name"&gt;\n</string>
     <string name="about_div">&lt;div class="about"&gt;\n</string>
     <string name="education_div">&lt;div class="education"&gt;\n</string>
