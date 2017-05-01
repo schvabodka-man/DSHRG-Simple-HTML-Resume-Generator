@@ -15,6 +15,7 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -88,6 +89,7 @@ public class CVInput extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         ignoreFields(ignoreHelper.getListofIgnoredFields());
+        clearIgnoredFieldValues(ignoreHelper.getListofIgnoredFields());
     }
 
 
@@ -170,6 +172,25 @@ public class CVInput extends AppCompatActivity {
                 view.setVisibility(View.GONE);
             } else {
                 view.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private void clearIgnoredFieldValues(ArrayList<Integer> ignored) {
+        Iterator<Integer> ignoredIterator = ignored.iterator();
+        View next;
+        LinearLayout nextLayout;
+        EditText nextText;
+        while (ignoredIterator.hasNext()) {
+            next = findViewById(ignoredIterator.next());
+            if (next instanceof LinearLayout) {
+                nextLayout = (LinearLayout) next;
+                for (int i = 0; i < nextLayout.getChildCount(); i++) {
+                    if (nextLayout.getChildAt(i) instanceof EditText) {
+                        nextText = (EditText) nextLayout.getChildAt(i);
+                        nextText.setText(null);
+                    }
+                }
             }
         }
     }
