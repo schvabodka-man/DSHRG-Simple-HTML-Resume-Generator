@@ -20,6 +20,7 @@ import apps.scvh.com.farm.util.cv.CV;
 import apps.scvh.com.farm.util.di.DaggerAppComponent;
 import apps.scvh.com.farm.util.di.ObjectProvider;
 import apps.scvh.com.farm.util.enums.CVFields;
+import apps.scvh.com.farm.util.enums.TextTypes;
 
 public class CVRenderer extends AsyncTask<CV, Integer, String> {
 
@@ -39,8 +40,15 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
 
     private String renderCV(CV cv) {
         HtmlBuilder builder = new HtmlBuilder();
+        builder.append(context.getString(R.string.head_open));
+        builder.append(context.getString(R.string.utf_encoding));
+        builder.append(context.getString(R.string.style_open));
+        setFonts(builder);
+        builder.append(context.getString(R.string.style_close));
+        builder.append(context.getString(R.string.head_close));
+        builder.append(context.getString(R.string.body_open));
         builder.h1(cv.getFullName());
-        builder.h1(cv.getAbout());
+        builder.h2(cv.getAbout());
         try {
             drawList(builder, cv.getEducation(), CVFields.EDUCATION);
             drawList(builder, cv.getExperience(), CVFields.EXPERIENCE);
@@ -52,6 +60,7 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        builder.append(context.getString(R.string.body_close));
         return builder.toString(); //i'm not building it, i just want html
     }
 
@@ -68,6 +77,13 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
             Log.d(context.getString(R.string.pdf_render_debug), context.getString(R.string
                     .pdf_render_null));
         }
+    }
+
+    private void setFonts(HtmlBuilder builder) {
+        builder.append(String.format(context.getString(R.string.header_font_size),
+                renderHelper.getFontSize(TextTypes.BIG_TEXT)));
+        builder.append(String.format(context.getString(R.string.text_font_size),
+                renderHelper.getFontSize(TextTypes.SMALL_TEXT)));
     }
 
     @Override

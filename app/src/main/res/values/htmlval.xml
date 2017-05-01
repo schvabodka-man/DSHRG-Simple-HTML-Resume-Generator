@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="body_open">&lt;body&gt;</string>
+    <string name="body_close">&lt;/body&gt;&lt;/html&gt;</string>
+    <string name="head_open">&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;</string>
+    <string name="head_close">&lt;/head&gt;</string>
+    <string name="style_open">&lt;style&gt;</string>
+    <string name="style_close">&lt;/style&gt;</string>
+    <string name="utf_encoding">&lt;meta charset="UTF-8"&gt;</string>
+    <string name="header_font_size">h1 {font-size: %1$dpx;}</string>
+    <string name="text_font_size">h2 {font-size: %1$dpx;}</string>
+
+</resources>
