@@ -90,17 +90,6 @@ public class CVInput extends AppCompatActivity {
         ignoreFields(ignoreHelper.getListofIgnoredFields());
     }
 
-    private void ignoreFields(ArrayList<Integer> ignored) {
-        View view;
-        for (int i = 0; i < container.getChildCount(); i++) {
-            view = container.getChildAt(i);
-            if (ignored.contains(view.getId())) {
-                view.setVisibility(View.GONE);
-            } else {
-                view.setVisibility(View.VISIBLE);
-            }
-        }
-    }
 
     @Click(R.id.create_experience)
     void addExperience() {
@@ -173,6 +162,17 @@ public class CVInput extends AppCompatActivity {
         return true;
     }
 
+    private void ignoreFields(ArrayList<Integer> ignored) {
+        View view;
+        for (int i = 0; i < container.getChildCount(); i++) {
+            view = container.getChildAt(i);
+            if (ignored.contains(view.getId())) {
+                view.setVisibility(View.GONE);
+            } else {
+                view.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 
     private CV makeCV() {
         CVBuilder builder = new CVBuilder();

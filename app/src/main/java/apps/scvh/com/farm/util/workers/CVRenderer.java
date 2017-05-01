@@ -99,9 +99,9 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
         builder.append(String.format(context.getString(R.string.about_css), renderHelper
                 .getGravity(CVFields.ABOUT)));
         builder.append(String.format(context.getString(R.string.education_css), renderHelper
-                .getGravity(CVFields.EXPERIENCE)));
+                .getGravity(CVFields.EDUCATION)));
         builder.append(String.format(context.getString(R.string.experience_css), renderHelper
-                .getGravity(CVFields.LINKS)));
+                .getGravity(CVFields.EXPERIENCE)));
         builder.append(String.format(context.getString(R.string.links_css), renderHelper
                 .getGravity(CVFields.LINKS)));
         builder.append(String.format(context.getString(R.string.projects_css), renderHelper
