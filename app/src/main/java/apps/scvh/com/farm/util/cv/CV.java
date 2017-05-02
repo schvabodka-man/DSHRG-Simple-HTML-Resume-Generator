@@ -4,6 +4,10 @@ package apps.scvh.com.farm.util.cv;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * ENG just cv
+ * RUS просто резюме
+ */
 public class CV implements Serializable {
 
     private String fullName;

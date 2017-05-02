@@ -5,6 +5,10 @@ import java.io.File;
 
 import apps.scvh.com.farm.util.enums.FSStates;
 
+/**
+ * ENG simple wrapper i made for operations with fs
+ * RUS класс который я запилил просто для того чтобы врапать резюме с нужной мне информацией
+ */
 public class CVHolder {
 
     private String cv;

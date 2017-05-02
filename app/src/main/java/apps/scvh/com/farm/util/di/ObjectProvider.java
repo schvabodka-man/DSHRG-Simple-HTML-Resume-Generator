@@ -13,6 +13,10 @@ import apps.scvh.com.farm.util.workers.RenderHelper;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * ENG main class for injecting objects
+ * RUS класс нужный для получения объектов под DI
+ */
 @Module
 public class ObjectProvider {
 

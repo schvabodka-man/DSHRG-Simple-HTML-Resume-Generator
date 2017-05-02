@@ -15,6 +15,10 @@ import java.io.IOException;
 import apps.scvh.com.farm.R;
 import apps.scvh.com.farm.util.cv.CVHolder;
 
+/**
+ * ENG class used for working with file system
+ * RUS класс заюзанный для работы с ФС
+ */
 public class FSWorker extends AsyncTask<CVHolder, Integer, Void> {
 
     private Context context;

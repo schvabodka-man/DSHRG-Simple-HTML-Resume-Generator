@@ -22,6 +22,10 @@ import apps.scvh.com.farm.util.di.ObjectProvider;
 import apps.scvh.com.farm.util.enums.CVFields;
 import apps.scvh.com.farm.util.enums.TextTypes;
 
+/**
+ * ENG class used for making html
+ * RUS класс которым я генерю хтмлку
+ */
 public class CVRenderer extends AsyncTask<CV, Integer, String> {
 
     private Context context;
@@ -68,7 +72,6 @@ public class CVRenderer extends AsyncTask<CV, Integer, String> {
         builder.append(context.getString(R.string.body_close));
         return builder.toString(); //i'm not building it, i just want html
     }
-
 
     private void drawList(HtmlBuilder builder, ArrayList<String> list, CVFields flag)
             throws IOException {

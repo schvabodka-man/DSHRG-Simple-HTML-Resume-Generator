@@ -8,6 +8,10 @@ import java.util.ArrayList;
 
 import apps.scvh.com.farm.R;
 
+/**
+ * ENG class i'm using for checking if field is used or not
+ * RUS
+ */
 public class IgnoredFieldsWorker {
 
     private Context context;
@@ -18,6 +22,11 @@ public class IgnoredFieldsWorker {
         this.prefs = prefs;
     }
 
+    /**
+     * ENG fancy method i'm using for getting list of ignored fields
+     * RUS метод который я юзаю чтобы получить список заигноренных полей
+     * @return the list of ignored fields
+     */
     public ArrayList<Integer> getListofIgnoredFields() {
         ArrayList<Integer> ignoredViews = new ArrayList<>();
         if (!prefs.getBoolean(context.getString(R.string.experience_key), true)) {
