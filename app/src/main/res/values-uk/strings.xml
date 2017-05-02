@@ -34,4 +34,16 @@
     <string name="center">Центер</string>
     <string name="left">Лiво</string>
     <string name="right">Право</string>
+    <string name="about_position">Про себе</string>
+    <string name="education_position">Освiта</string>
+    <string name="experience_position">Досвiд</string>
+    <string name="links_position">Посилання</string>
+    <string name="name_position">Iм\'я</string>
+    <string name="other_skills_position">Iншi навички</string>
+    <string name="primary_skills_position">Головнi навички</string>
+    <string name="projects_position">Проекти</string>
+    <string name="secondary_skills_position">Другоряднi навички</string>
+    <string name="text_positioning">Положення тексту</string>
+    <string name="used_fields">Використанi поля</string>
+    <string name="font_sizes">Розмiр шрифтiв</string>
 </resources>

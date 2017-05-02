@@ -1,106 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="@string/experience_key"
-        android:title="@string/experience"/>
+    <PreferenceCategory
+        android:title="@string/used_fields">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/experience_key"
+            android:title="@string/experience"/>
 
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="@string/education_key"
-        android:title="@string/education"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/education_key"
+            android:title="@string/education"/>
 
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="@string/personal_projects_key"
-        android:title="@string/personal_projects"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/personal_projects_key"
+            android:title="@string/personal_projects"/>
 
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="@string/skills_key"
-        android:title="@string/skills"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/skills_key"
+            android:title="@string/skills"/>
 
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="@string/links_key"
-        android:title="@string/links"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/links_key"
+            android:title="@string/links"/>
+    </PreferenceCategory>
 
-    <EditTextPreference
-        android:defaultValue="23"
-        android:inputType="number"
-        android:key="@string/big_text_key"
-        android:title="@string/big_text"
-        android:summary="@string/big_text_full"/>
+    <PreferenceCategory
+        android:title="@string/font_sizes">
+        <EditTextPreference
+            android:defaultValue="@string/pdf_headers_size"
+            android:inputType="number"
+            android:key="@string/big_text_key"
+            android:summary="@string/big_text_full"
+            android:title="@string/big_text"/>
 
-    <EditTextPreference
-        android:defaultValue="14"
-        android:inputType="number"
-        android:key="@string/small_text_key"
-        android:title="@string/small_text"
-        android:summary="@string/small_text_full"/>
+        <EditTextPreference
+            android:defaultValue="@string/pdf_text_size"
+            android:inputType="number"
+            android:key="@string/small_text_key"
+            android:summary="@string/small_text_full"
+            android:title="@string/small_text"/>
+    </PreferenceCategory>
 
-    <ListPreference
-        android:key="@string/name_position_key"
-        android:title="@string/name_position"
-        android:defaultValue="@string/left_key"
-        android:entries="@array/gravityentries"
-        android:entryValues="@array/gravityvalues"/>
+    <PreferenceCategory
+        android:title="@string/text_positioning">
+        <ListPreference
+            android:defaultValue="@string/left_key"
+            android:entries="@array/gravityentries"
+            android:entryValues="@array/gravityvalues"
+            android:key="@string/name_position_key"
+            android:title="@string/name_position"/>
 
-    <ListPreference
-        android:key="@string/about_position_key"
-        android:title="@string/about_position"
-        android:defaultValue="@string/left_key"
-        android:entries="@array/gravityentries"
-        android:entryValues="@array/gravityvalues"/>
+        <ListPreference
+            android:defaultValue="@string/left_key"
+            android:entries="@array/gravityentries"
+            android:entryValues="@array/gravityvalues"
+            android:key="@string/about_position_key"
+            android:title="@string/about_position"/>
 
-    <ListPreference
-        android:key="@string/education_position_key"
-        android:title="@string/education_position"
-        android:defaultValue="@string/left_key"
-        android:entries="@array/gravityentries"
-        android:entryValues="@array/gravityvalues"/>
+        <ListPreference
+            android:defaultValue="@string/left_key"
+            android:entries="@array/gravityentries"
+            android:entryValues="@array/gravityvalues"
+            android:key="@string/education_position_key"
+            android:title="@string/education_position"/>
 
-    <ListPreference
-        android:key="@string/experience_position_key"
-        android:title="@string/experience_position"
-        android:defaultValue="@string/left_key"
-        android:entries="@array/gravityentries"
-        android:entryValues="@array/gravityvalues"/>
+        <ListPreference
+            android:defaultValue="@string/left_key"
+            android:entries="@array/gravityentries"
+            android:entryValues="@array/gravityvalues"
+            android:key="@string/experience_position_key"
+            android:title="@string/experience_position"/>
 
-    <ListPreference
-        android:key="@string/links_position_key"
-        android:title="@string/links_position"
-        android:defaultValue="@string/left_key"
-        android:entries="@array/gravityentries"
-        android:entryValues="@array/gravityvalues"/>
+        <ListPreference
+            android:defaultValue="@string/left_key"
+            android:entries="@array/gravityentries"
+            android:entryValues="@array/gravityvalues"
+            android:key="@string/links_position_key"
+            android:title="@string/links_position"/>
 
-    <ListPreference
-        android:key="@string/projects_position_key"
-        android:title="@string/projects_position"
-        android:defaultValue="@string/left_key"
-        android:entries="@array/gravityentries"
-        android:entryValues="@array/gravityvalues"/>
+        <ListPreference
+            android:defaultValue="@string/left_key"
+            android:entries="@array/gravityentries"
+            android:entryValues="@array/gravityvalues"
+            android:key="@string/projects_position_key"
+            android:title="@string/projects_position"/>
 
-    <ListPreference
-        android:key="@string/primary_skills_position_key"
-        android:title="@string/primary_skills_position"
-        android:defaultValue="@string/left_key"
-        android:entries="@array/gravityentries"
-        android:entryValues="@array/gravityvalues"/>
+        <ListPreference
+            android:defaultValue="@string/left_key"
+            android:entries="@array/gravityentries"
+            android:entryValues="@array/gravityvalues"
+            android:key="@string/primary_skills_position_key"
+            android:title="@string/primary_skills_position"/>
 
-    <ListPreference
-        android:key="@string/secondary_skills_position_key"
-        android:title="@string/secondary_skills_position"
-        android:defaultValue="@string/left_key"
-        android:entries="@array/gravityentries"
-        android:entryValues="@array/gravityvalues"/>
+        <ListPreference
+            android:defaultValue="@string/left_key"
+            android:entries="@array/gravityentries"
+            android:entryValues="@array/gravityvalues"
+            android:key="@string/secondary_skills_position_key"
+            android:title="@string/secondary_skills_position"/>
 
-    <ListPreference
-        android:key="@string/other_skills_position_key"
-        android:title="@string/other_skills_position"
-        android:defaultValue="@string/left_key"
-        android:entries="@array/gravityentries"
-        android:entryValues="@array/gravityvalues"/>
+        <ListPreference
+            android:defaultValue="@string/left_key"
+            android:entries="@array/gravityentries"
+            android:entryValues="@array/gravityvalues"
+            android:key="@string/other_skills_position_key"
+            android:title="@string/other_skills_position"/>
+    </PreferenceCategory>
 
 </PreferenceScreen>

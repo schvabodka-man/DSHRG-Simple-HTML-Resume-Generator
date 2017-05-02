@@ -51,22 +51,27 @@
     <string name="left_key" translatable="false">left</string>
     <string name="right_key" translatable="false">right</string>
     <string name="center_key" translatable="false">center</string>
-    <string name="name_position">Name Position</string>
+    <string name="name_position">Name position</string>
     <string name="name_position_key" translatable="false">name_position</string>
-    <string name="about_position">About Position</string>
+    <string name="about_position">About position</string>
     <string name="about_position_key" translatable="false">about_position</string>
-    <string name="education_position">Education Position</string>
+    <string name="education_position">Education position</string>
     <string name="education_position_key" translatable="false">education_position</string>
-    <string name="experience_position">Experience Position</string>
+    <string name="experience_position">Experience position</string>
     <string name="experience_position_key" translatable="false">experience_position</string>
-    <string name="links_position">Links Position</string>
+    <string name="links_position">Links position</string>
     <string name="links_position_key" translatable="false">links_position</string>
-    <string name="projects_position">Projects Position</string>
+    <string name="projects_position">Projects position</string>
     <string name="projects_position_key" translatable="false">projects_position</string>
-    <string name="primary_skills_position">Primary Skills Position</string>
+    <string name="primary_skills_position">Primary Skills position</string>
     <string name="primary_skills_position_key" translatable="false">primary_skills_position</string>
-    <string name="secondary_skills_position">Secondary Skills Position</string>
+    <string name="secondary_skills_position">Secondary Skills position</string>
     <string name="secondary_skills_position_key" translatable="false">secondary_skills_position</string>
-    <string name="other_skills_position">Other Skills Position</string>
+    <string name="other_skills_position">Other Skills position</string>
     <string name="other_skills_position_key" translatable="false">other_skills_position</string>
+    <string name="pdf_headers_size" translatable="false">24</string>
+    <string name="pdf_text_size" translatable="false">14</string>
+    <string name="used_fields">Used fields</string>
+    <string name="font_sizes">Font size</string>
+    <string name="text_positioning">Text positioning</string>
 </resources>

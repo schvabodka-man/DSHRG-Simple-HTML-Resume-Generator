@@ -15,7 +15,7 @@
     <string name="open">ПРЕВЬЮ</string>
     <string name="other_skills">Другие навыки</string>
     <string name="personal_projects">Личные проекты</string>
-    <string name="primary_skills">Главные навыки</string>
+    <string name="primary_skills">Первичные навыки</string>
     <string name="secondary_skills">Вторичные навыки</string>
     <string name="skill">Навык</string>
     <string name="skills">Навыки</string>
@@ -34,4 +34,16 @@
     <string name="center">Центер</string>
     <string name="left">Лево</string>
     <string name="right">Право</string>
+    <string name="about_position">О себе</string>
+    <string name="education_position">Образование</string>
+    <string name="experience_position">Опыт</string>
+    <string name="links_position">Ссылки</string>
+    <string name="name_position">Имя</string>
+    <string name="other_skills_position">Другие навыки</string>
+    <string name="primary_skills_position">Первичные навыки</string>
+    <string name="projects_position">Проекты</string>
+    <string name="secondary_skills_position">Вторичные навыки</string>
+    <string name="text_positioning">Положение текста</string>
+    <string name="used_fields">Используемые поля</string>
+    <string name="font_sizes">Размер шрифтов</string>
 </resources>

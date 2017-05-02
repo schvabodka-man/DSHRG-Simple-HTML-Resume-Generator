@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="body_open">&lt;body&gt;\n</string>
-    <string name="body_close">&lt;/body&gt;\n&lt;/html&gt;</string>
-    <string name="head_open">&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n</string>
-    <string name="head_close">&lt;/head&gt;\n</string>
-    <string name="style_open">&lt;style&gt;\n</string>
-    <string name="style_close">&lt;/style&gt;\n</string>
-    <string name="utf_encoding">&lt;meta charset="UTF-8"&gt;\n</string>
-    <string name="header_font_size">h1 {font-size: %1$dpx;}\n</string>
-    <string name="text_font_size">h2 {font-size: %1$dpx;}\n</string>
-    <string name="name_css">.name {text-align: %1$s;}\n</string>
-    <string name="about_css">.about {text-align: %1$s;}\n</string>
-    <string name="education_css">.education {text-align: %1$s;}\n</string>
-    <string name="experience_css">.experience {text-align: %1$s;}\n</string>
-    <string name="links_css">.links {text-align: %1$s;}\n</string>
-    <string name="projects_css">.projects {text-align: %1$s;}\n</string>
-    <string name="primary_skills_css">.primary_skills {text-align: %1$s;}\n</string>
-    <string name="secondary_skills_css">.secondary_skills {text-align: %1$s;}\n</string>
-    <string name="other_skills_css">.other_skills {text-align: %1$s;}\n</string>
-    <string name="name_div">&lt;div class="name"&gt;\n</string>
-    <string name="about_div">&lt;div class="about"&gt;\n</string>
-    <string name="education_div">&lt;div class="education"&gt;\n</string>
-    <string name="experience_div">&lt;div class="experience"&gt;\n</string>
-    <string name="links_div">&lt;div class="links"&gt;\n</string>
-    <string name="projects_div">&lt;div class="projects"&gt;\n</string>
-    <string name="primary_skills_div">&lt;div class="primary_skills"&gt;\n</string>
-    <string name="secondary_skills_div">&lt;div class="secondary_skills"&gt;\n</string>
-    <string name="other_skills_div">&lt;div class="other_skills"&gt;\n</string>
-    <string name="div_close">\n&lt;/div&gt;\n</string>
+    <string name="body_open" translatable="false">&lt;body&gt;\n</string>
+    <string name="body_close" translatable="false">&lt;/body&gt;\n&lt;/html&gt;</string>
+    <string name="head_open" translatable="false">&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n</string>
+    <string name="head_close" translatable="false">&lt;/head&gt;\n</string>
+    <string name="style_open" translatable="false">&lt;style&gt;\n</string>
+    <string name="style_close" translatable="false">&lt;/style&gt;\n</string>
+    <string name="utf_encoding" translatable="false">&lt;meta charset="UTF-8"&gt;\n</string>
+    <string name="header_font_size" translatable="false">h1 {font-size: %1$dpx;}\n</string>
+    <string name="text_font_size" translatable="false">h2 {font-size: %1$dpx;}\n</string>
+    <string name="name_css" translatable="false">.name {text-align: %1$s;}\n</string>
+    <string name="about_css" translatable="false">.about {text-align: %1$s;}\n</string>
+    <string name="education_css" translatable="false">.education {text-align: %1$s;}\n</string>
+    <string name="experience_css" translatable="false">.experience {text-align: %1$s;}\n</string>
+    <string name="links_css" translatable="false">.links {text-align: %1$s;}\n</string>
+    <string name="projects_css" translatable="false">.projects {text-align: %1$s;}\n</string>
+    <string name="primary_skills_css" translatable="false">.primary_skills {text-align: %1$s;}\n</string>
+    <string name="secondary_skills_css" translatable="false">.secondary_skills {text-align: %1$s;}\n</string>
+    <string name="other_skills_css" translatable="false">.other_skills {text-align: %1$s;}\n</string>
+    <string name="name_div" translatable="false">&lt;div class="name"&gt;\n</string>
+    <string name="about_div" translatable="false">&lt;div class="about"&gt;\n</string>
+    <string name="education_div" translatable="false">&lt;div class="education"&gt;\n</string>
+    <string name="experience_div" translatable="false">&lt;div class="experience"&gt;\n</string>
+    <string name="links_div" translatable="false">&lt;div class="links"&gt;\n</string>
+    <string name="projects_div" translatable="false">&lt;div class="projects"&gt;\n</string>
+    <string name="primary_skills_div" translatable="false">&lt;div class="primary_skills"&gt;\n</string>
+    <string name="secondary_skills_div" translatable="false">&lt;div class="secondary_skills"&gt;\n</string>
+    <string name="other_skills_div" translatable="false">&lt;div class="other_skills"&gt;\n</string>
+    <string name="div_close" translatable="false">\n&lt;/div&gt;\n</string>
 </resources>
