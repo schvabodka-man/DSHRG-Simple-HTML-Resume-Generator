@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FARM!</string>
+    <string name="app_name">DSHRG</string>
     <string name="title_activity_cvsettings">Settings</string>
     <string name="full_name">Full name</string>
     <string name="full_name_key" translatable="false">fullname</string>
