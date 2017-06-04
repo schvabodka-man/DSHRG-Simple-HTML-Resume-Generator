@@ -2,6 +2,7 @@ package apps.scvh.com.farm.ui.workers;
 
 
 import android.content.Context;
+import android.view.ViewGroup;
 import android.widget.EditText;
 
 /**
@@ -23,6 +24,8 @@ public class TextBoxFactory {
     public EditText createTextBox(int stringId) {
         EditText editText = new EditText(context);
         editText.setHint(stringId);
+        editText.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
         return editText;
     }
 }
