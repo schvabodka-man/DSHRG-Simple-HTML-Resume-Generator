@@ -1,7 +1,7 @@
 <p align="center"><a href="url"><img src="https://raw.githubusercontent.com/schvabodka-man/DSHRG-Simple-HTML-Resume-Generator/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width="300" height="300"></a></p>
 
 <div style="display: inline-block;">
-<img src="https://raw.githubusercontent.com/schvabodka-man/Custom-Badges/master/Languages/Java/png/Java%20xxxhdpi.png" width="300" height="48">
+<img src="https://raw.githubusercontent.com/schvabodka-man/Custom-Badges/master/Languages/Java/png/Java%20xxxhdpi.png" width="300" height="46">
 <img src="http://forthebadge.com/images/badges/built-for-android.svg" width="300" height="45">
 </div>
 
