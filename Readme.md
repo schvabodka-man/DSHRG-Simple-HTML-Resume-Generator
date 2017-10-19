@@ -8,13 +8,13 @@
 # A simple HTML resume generator
 
 <div style="max-width: 20%;max-height: 20%;display: inline-block; align: center;">
-<a href="url"><img src="https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/projects/resume/ready.png" height="400" width="200"  align="left"></a>
+<a href="url"><img src="https://raw.githubusercontent.com/schvabodka-man/DSHRG-Simple-HTML-Resume-Generator/master/screenshots/ready.png" height="400" width="200"  align="left"></a>
 
-<a href="url"><img src="https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/projects/resume/settings1.png"  height="400" width="200" align="center"></a>
+<a href="url"><img src="https://raw.githubusercontent.com/schvabodka-man/DSHRG-Simple-HTML-Resume-Generator/master/screenshots/settings1.png"  height="400" width="200" align="center"></a>
 
-<a href="url"><img src="https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/projects/resume/settings2.png" height="400" width="200" align="left"></a>
+<a href="url"><img src="https://raw.githubusercontent.com/schvabodka-man/DSHRG-Simple-HTML-Resume-Generator/master/screenshots/settings2.png" height="400" width="200" align="left"></a>
 
-<a href="url"><img src="https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/projects/resume/fields.png" height="400" width="200" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/schvabodka-man/DSHRG-Simple-HTML-Resume-Generator/master/screenshots/fields.png" height="400" width="200" ></a>
 </div>
 
 ## About
